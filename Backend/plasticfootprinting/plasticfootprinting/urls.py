@@ -19,4 +19,11 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('footprint.urls')),   
+    path('api-auth/', include('rest_framework.urls')),
 ]
+
+#@ /about-us (React)
+#@ /visualization
+#@ /models
+#@ /dataset
+#@ models.py => code from notebook; pickle, joblib => model train and load; export pickle
