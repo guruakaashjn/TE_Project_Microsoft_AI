@@ -1,0 +1,21 @@
+.header {
+	/* position: absolute; */
+	width: 100%;
+	opacity: 0.9;
+}
+
+.MuiAppBar-root {
+	/* position: relative;
+	z-index: 1; */
+	background-color: #050706 !important;
+	color: #ffc947 !important;
+	opacity: 1 !important;
+}
+
+.header__buttons {
+	color: #ffc947 !important;
+}
+
+.header__navbar {
+	justify-content: end;
+}

@@ -1,0 +1,63 @@
+.Dataset {
+	padding: 25px;
+	padding-top: 0;
+	width: 98%;
+	overflow: scroll;
+}
+.Dataset__page {
+	background-color: #232f41;
+}
+
+.dataset__header {
+	display: grid;
+}
+
+.Dataset__title {
+	color: #ffc947;
+	font-size: 1.5rem;
+	text-align: center;
+	padding: 8px;
+}
+
+.Dataset__title span {
+	font-size: 1.7rem;
+}
+
+table,
+th,
+td {
+	border: 1px solid white;
+	border-collapse: collapse;
+	padding: 1rem;
+}
+
+table {
+	overflow: scroll;
+}
+
+td,
+th {
+	text-align: center;
+}
+
+td {
+	width: 1px;
+	white-space: nowrap;
+	color: #ffc947;
+}
+
+th {
+	background-color: #6998ab;
+}
+
+tr:nth-child(even) {
+	background-color: #495371;
+}
+tr:nth-child(odd) {
+	background-color: #232f41;
+}
+
+.Dataset__skeleton {
+	width: 95vw;
+	height: 70vw !important;
+}

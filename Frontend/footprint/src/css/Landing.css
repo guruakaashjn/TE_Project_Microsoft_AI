@@ -1,0 +1,21 @@
+body {
+	/* overflow-x: hidden; */
+	width: 100vw;
+}
+
+/* .landing__navbarclip {
+	position: relative;
+}*/
+
+.landing__clip {
+	/* position: absolute;
+	top: 0;
+	z-index: -1; */
+	width: 100vw;
+}
+
+/* h1 {
+	position: absolute;
+	top: 300px;
+	z-index: 1;
+} */
