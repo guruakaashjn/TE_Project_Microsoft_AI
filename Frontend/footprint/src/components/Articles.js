@@ -19,10 +19,10 @@ const Articles = ({ title, content, image, link }) => {
 					alt="green iguana"
 				/>
 				<CardContent>
-					<Typography gutterBottom variant="h5" component="div">
+					<Typography gutterBottom variant="h5" color="#ffc947" component="div">
 						{title || "Lizard"}
 					</Typography>
-					<Typography variant="body2" color="text.secondary">
+					<Typography variant="body2" color="#ffc947">
 						{content ||
 							"Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica"}
 					</Typography>
