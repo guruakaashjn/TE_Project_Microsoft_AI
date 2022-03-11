@@ -4,12 +4,15 @@
 	width: 98%;
 	overflow: scroll;
 }
+
 .Dataset__page {
 	background-color: #232f41;
 }
 
 .dataset__header {
-	display: grid;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .Dataset__title {
@@ -17,6 +20,7 @@
 	font-size: 1.5rem;
 	text-align: center;
 	padding: 8px;
+	padding-right: 2rem;
 }
 
 .Dataset__title span {
