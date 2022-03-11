@@ -6,12 +6,20 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
+import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 
 const Header = () => {
+	const path = {
+		Home: "/",
+		Visualisation: "/visualisation",
+		Models: "/",
+		Dataset: "/dataset",
+		"About Us": "/",
+	};
 	const pages = ["Home", "Visualisation", "Models", "Dataset", "About Us"];
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
 	const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -42,7 +50,7 @@ const Header = () => {
 							component="div"
 							sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
 						>
-							LOGO
+							Plastic Footprint
 						</Typography>
 
 						<Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -87,21 +95,23 @@ const Header = () => {
 							component="div"
 							sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
 						>
-							LOGO
+							Plastic Footprint
 						</Typography>
 						<Box
 							className="header__navbar"
 							sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
 						>
 							{pages.map((page) => (
-								<Button
-									className="header__buttons"
-									key={page}
-									onClick={handleCloseNavMenu}
-									sx={{ my: 2, color: "white", display: "block" }}
-								>
-									{page}
-								</Button>
+								<Link to={path[page]}>
+									<Button
+										className="header__buttons"
+										key={page}
+										onClick={handleCloseNavMenu}
+										sx={{ my: 2, color: "white", display: "block" }}
+									>
+										{page}
+									</Button>
+								</Link>
 							))}
 						</Box>
 					</Toolbar>
