@@ -1,0 +1,15 @@
+/* .Dropdown {
+	min-width: 200px !important;
+} */
+
+#demo-simple-select-label {
+	color: #ffc947 !important;
+}
+
+.Dropdown__formControl {
+	min-width: 200px !important;
+}
+
+.Dropdown__select fieldset {
+	border-color: #ffc947 !important;
+}

@@ -13,20 +13,22 @@ export default function BasicSelect({ options }) {
 	};
 
 	return (
-		<Box sx={{ minWidth: 120 }}>
-			<FormControl fullWidth>
-				<InputLabel id="demo-simple-select-label">
+		<Box className="Dropdown" sx={{ minWidth: 200 }}>
+			<FormControl className="Dropdown__formControl" fullWidth>
+				<InputLabel id="demo-simple-select-label" sx={{ color: "#ffc947" }}>
 					Choose visualisation
 				</InputLabel>
 				<Select
+					sx={{ borderColor: "#ffc947" }}
+					className="Dropdown__select"
 					labelId="demo-simple-select-label"
 					id="demo-simple-select"
 					value={option}
 					label="choose-visualisation"
 					onChange={handleChange}
 				>
-					{Object.keys(options).forEach((option) => {
-						return <MenuItem value={option}>options[option]</MenuItem>;
+					{Object.keys(options).map((option) => {
+						return <MenuItem value={option}>{options[option]}</MenuItem>;
 					})}
 					{/* <MenuItem value={20}>Twenty</MenuItem>
 					<MenuItem value={30}>Thirty</MenuItem> */}

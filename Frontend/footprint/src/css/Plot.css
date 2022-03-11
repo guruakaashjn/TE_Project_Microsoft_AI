@@ -3,6 +3,13 @@
 	height: 100vh;
 }
 
+.Plotgraph__header {
+	padding: 0.8rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .Plotgraph__plot {
 	display: flex !important;
 	justify-content: center;
