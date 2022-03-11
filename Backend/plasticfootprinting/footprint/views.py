@@ -2,13 +2,26 @@ import json
 import os
 import csv
 import pickle
+from textwrap import indent
 import pandas as pd
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.conf import settings
-from footprint.serializer import JsonSerializer
+# import plotly.plotly as py
+import chart_studio.plotly as py
+import plotly.figure_factory as ff
+import plotly.tools as tl
+
+#For visualization
+import plotly.graph_objs as go
+import chart_studio
+chart_studio.tools.set_credentials_file(username='PlotGuruVes', api_key='FhPEgIKGNSQmOpjZXahe')
+# Add Mapbox access token here 
+mapbox_access_token = 'pk.eyJ1IjoiYXNjaHJvY2siLCJhIjoiY2p2NnRoeHc2MDkxbTQ0bnR6aTVwZDNsaCJ9.MA76hkxD3rOGgnVCDBVC9w'
+
+
 
 # Create your views here.
 
@@ -60,22 +73,19 @@ def download_csv(request):
 
 @api_view(['GET', 'POST'])
 def recycling_plant(request):
-    dataset = pd.read_csv(os.path.join(settings.BASE_DIR, 'dataset.csv'))
+    dataset = pd.read_csv(os.path.join(settings.BASE_DIR, 'recycling_plant.csv'))
     dataset = dataset.iloc[1::2]
     dataset = dataset.reset_index(drop = True)
     dataset.dropna(subset = ['Latitude', 'Longitude'], inplace = True)
     dataset.rename(columns = {'Capacity(TPA)':'Capacity', 'Materials_Processed(TPA)': 'Materials_Processed'}, inplace = True)
     recycling_data = {
-        "latitude": dataset.Latitude,
-        "longitude": dataset.Longitude,
-        "recyclingName": dataset.Recycling_Plant,
-        "noOfStaff": dataset.Number_of_staffs,
-        "materialsAccepted": dataset.Materials_Accepted,
-        "recycledProducts": dataset.Recycled_Products,
-        "processedMaterials": dataset.Materials_Processed,
-        "capacity": dataset.Capacity
+        "latitude": dataset["Latitude"].to_list(),
+        "longitude": dataset["Longitude"].to_list(),
+        "recyclingName": dataset["Recycling_Plant"].to_list(),
+        "materialsAccepted": dataset["Materials_Accepted"].to_list(),
+        "recycledProducts": dataset["Recycled_Products"].to_list(),
     }
-    jsonData = json.dumps(recycling_data)
-    jsonData = json.loads(jsonData)
+    # jsonData = json.dumps(recycling_data, allow_nan=True, sort_keys=True)
+    # jsonData = json.loads(jsonData)
 
-    return JsonResponse(jsonData)
+    return Response(recycling_data)
