@@ -3,9 +3,10 @@ body {
 	width: 100vw;
 }
 
-/* .landing__navbarclip {
+.landing__container {
 	position: relative;
-}*/
+	text-align: center;
+}
 
 .landing__clip {
 	/* position: absolute;
@@ -14,8 +15,24 @@ body {
 	width: 100vw;
 }
 
-/* h1 {
+.Landing__content {
+	width: 100%;
 	position: absolute;
-	top: 300px;
-	z-index: 1;
-} */
+	top: 250px;
+	right: 10%;
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 2rem;
+}
+
+.Navbar__contentright {
+	width: 250px;
+	color: white;
+	font-weight: 500;
+	opacity: 0.8;
+}
+
+.Navbar__contentright span {
+	color: grey;
+	font-style: italic;
+}

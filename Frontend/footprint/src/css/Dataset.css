@@ -6,7 +6,7 @@
 }
 
 .Dataset__page {
-	background-color: #232f41;
+	background-color: #fff;
 }
 
 .dataset__header {
@@ -30,7 +30,7 @@
 table,
 th,
 td {
-	border: 1px solid white;
+	border: 1px solid black;
 	border-collapse: collapse;
 	padding: 1rem;
 }
@@ -47,18 +47,18 @@ th {
 td {
 	width: 1px;
 	white-space: nowrap;
-	color: #ffc947;
+	color: black;
 }
 
-th {
+/* th {
 	background-color: #6998ab;
 }
-
+ */
 tr:nth-child(even) {
-	background-color: #495371;
+	background-color: #fff;
 }
 tr:nth-child(odd) {
-	background-color: #232f41;
+	background-color: rgb(167, 163, 163);
 }
 
 .Dataset__skeleton {

@@ -5,10 +5,14 @@ import { Skeleton } from "@mui/material";
 import Header from "../components/Header";
 import { Button } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
+import Pagination from "react-js-pagination";
 import { saveAs } from "file-saver";
+// require("bootstrap/less/bootstrap.less");
 
 const Dataset = () => {
 	const [csvData, setCsvData] = useState(null);
+	const [activePage, setActivePage] = useState(1);
+
 	useEffect(() => {
 		const url = "http://localhost:8000";
 		const config = {
@@ -32,6 +36,11 @@ const Dataset = () => {
 			console.log(error);
 		}
 	}, []);
+
+	const handlePageChange = (pageNumber) => {
+		console.log(`active page is ${pageNumber}`);
+		setActivePage(pageNumber);
+	};
 
 	const downloadFile = async () => {
 		const url = "http://localhost:8000";
@@ -81,29 +90,39 @@ const Dataset = () => {
 
 			<div className="Dataset">
 				{csvData ? (
-					<table
-						className="Dataset__table"
-						// style={{ width: "100%", minWidth: "1000px" }}
-					>
-						<thead>
-							<tr>
-								{csvData.columns.map((title, titleKey) => {
-									return <th key={titleKey}>{title}</th>;
+					<div>
+						<table
+							className="Dataset__table"
+							// style={{ width: "100%", minWidth: "1000px" }}
+						>
+							<thead>
+								<tr>
+									{csvData.columns.map((title, titleKey) => {
+										return <th key={titleKey}>{title}</th>;
+									})}
+								</tr>
+							</thead>
+							<tbody>
+								{csvData.data.map((row, rowKey) => {
+									return (
+										<tr key={rowKey}>
+											{row.map((col, colKey) => {
+												return <td key={colKey}>{col}</td>;
+											})}
+										</tr>
+									);
 								})}
-							</tr>
-						</thead>
-						<tbody>
-							{csvData.data.map((row, rowKey) => {
-								return (
-									<tr key={rowKey}>
-										{row.map((col, colKey) => {
-											return <td key={colKey}>{col}</td>;
-										})}
-									</tr>
-								);
-							})}
-						</tbody>
-					</table>
+							</tbody>
+						</table>
+						{/* Requires bootstrap3 */}
+						{/* <Pagination
+							activePage={activePage}
+							itemsCountPerPage={10}
+							totalItemsCount={450}
+							pageRangeDisplayed={5}
+							onChange={() => handlePageChange(3)}
+						/> */}
+					</div>
 				) : (
 					<Skeleton variant="rectangular" className="Dataset__skeleton" />
 				)}

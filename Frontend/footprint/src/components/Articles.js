@@ -11,7 +11,10 @@ import "../css/Articles.css";
 const Articles = ({ title, content, image, link }) => {
 	return (
 		<div className="articles">
-			<Card sx={{ maxWidth: 345 }} style={{ backgroundColor: "#1A1A1B" }}>
+			<Card
+				sx={{ maxWidth: 345, boxShadow: 3 }}
+				style={{ backgroundColor: "#DDFFBC" }}
+			>
 				<CardMedia
 					component="img"
 					height="140"
@@ -19,10 +22,16 @@ const Articles = ({ title, content, image, link }) => {
 					alt="green iguana"
 				/>
 				<CardContent>
-					<Typography gutterBottom variant="h5" color="#ffc947" component="div">
+					<Typography
+						gutterBottom
+						variant="h5"
+						sx={{ fontWeight: "bold" }}
+						color="#52734D"
+						component="div"
+					>
 						{title || "Lizard"}
 					</Typography>
-					<Typography variant="body2" color="#ffc947">
+					<Typography variant="body2" color="#52734D">
 						{content ||
 							"Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica"}
 					</Typography>

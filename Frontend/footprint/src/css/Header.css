@@ -1,21 +1,49 @@
 .header {
-	/* position: absolute; */
+	position: absolute;
+	top: 0;
 	width: 100%;
 	opacity: 0.9;
 }
 
 .MuiAppBar-root {
-	/* position: relative;
-	z-index: 1; */
+	/* position: absolute; */
+	/* z-index: 1; */
+	/* bottom: 0; */
 	background-color: #050706 !important;
-	color: #ffc947 !important;
+	/* color: #fff8b5 !important; */
 	opacity: 1 !important;
 }
 
 .header__buttons {
-	color: #ffc947 !important;
+	/* color: #FFF8B5 !important; */
 }
 
 .header__navbar {
 	justify-content: end;
+}
+
+.Navbar {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+.Navbar__left {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.Navbar__center {
+	display: flex;
+	justify-content: center;
+}
+
+.Navbar__right {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
 }

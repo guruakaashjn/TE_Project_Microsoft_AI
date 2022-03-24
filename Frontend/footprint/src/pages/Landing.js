@@ -1,17 +1,31 @@
 import React from "react";
 import Header from "../components/Header";
+import Navbar from "../components/Navbar";
+import Typography from "@mui/material/Typography";
 import "../css/Landing.css";
-import landingClip from "../video/ezgif.com-gif-maker(1).gif";
+import landingClip from "../video/landing_clip.gif";
 import Concern from "../components/Concern";
 
 const Landing = () => {
 	return (
 		<div className="landing">
-			<div className="landing__navbarclip">
-				<Header />
-				{/* <h1>hello</h1> */}
-				<img className="landing__clip" src={landingClip} alt="Landing-clip" />
-			</div>
+			<section id="landing__top">
+				<div className="landing__container">
+					<img className="landing__clip" src={landingClip} alt="Landing-clip" />
+					<Navbar />
+					{/* <Header navbar={true} /> */}
+					<div className="Landing__content">
+						<div className="Navbar__contentright">
+							<Typography variant="h2">
+								{" "}
+								There is no planet <span>"B"</span>{" "}
+							</Typography>
+						</div>
+						<div className="Navbar__contentleft"></div>
+					</div>
+				</div>
+			</section>
+
 			<section id="landing__concern">
 				<Concern />
 			</section>
