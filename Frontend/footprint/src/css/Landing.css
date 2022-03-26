@@ -45,3 +45,13 @@ body {
 .concern__container {
 	width: 80%;
 }
+
+#Landing__footer {
+	display: flex;
+	background-color: #050706;
+	justify-content: center;
+}
+
+.footer__container {
+	width: 80%;
+}

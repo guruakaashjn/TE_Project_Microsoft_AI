@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&display=swap");
+
+.Footer {
+	margin-top: 2.5rem;
+	margin-bottom: 2.5rem;
+}
+
+.footer__container {
+	background-color: #050706;
+	color: white;
+}
+.FooterContainer__top {
+	display: flex;
+	/* align-items: center; */
+}
+
+.Footer__left {
+	width: 50%;
+}
+
+.Footer__title {
+	font-size: 28px;
+	font-family: "Merienda", cursive;
+}
+
+.Footer__center {
+	width: 25%;
+}
+
+.Footer__icons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Footer__icons a {
+	color: white;
+}
+
+.Footer__icons a:hover {
+	/* font-size: 3rem; */
+	color: #551a8b;
+}
+
+.Footer__right {
+	width: 25%;
+}
+
+.Footer__links {
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	justify-content: center;
+	/* align-items: center; */
+}
+
+.Footer__links a {
+	padding: 3px;
+	color: white;
+}
+
+.Footer__links a:hover {
+	color: #551a8b;
+	font-size: 1.2rem;
+}
+
+.FooterContainer__bottom {
+	display: flex;
+	justify-content: center;
+}

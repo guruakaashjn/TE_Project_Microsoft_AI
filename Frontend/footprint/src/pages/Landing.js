@@ -1,10 +1,10 @@
 import React from "react";
 import Header from "../components/Header";
-import Navbar from "../components/Navbar";
 import Typography from "@mui/material/Typography";
 import "../css/Landing.css";
 import landingClip from "../video/ocean-4920792_1920.jpg";
 import Concern from "../components/Concern";
+import Footer from "../components/Footer";
 
 const Landing = () => {
 	return (
@@ -49,6 +49,12 @@ const Landing = () => {
 			<section id="Landing__concern">
 				<div className="concern__container">
 					<Concern />
+				</div>
+			</section>
+
+			<section id="Landing__footer">
+				<div className="footer__container">
+					<Footer />
 				</div>
 			</section>
 		</div>
