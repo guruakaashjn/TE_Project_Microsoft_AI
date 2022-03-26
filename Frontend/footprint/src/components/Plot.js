@@ -83,7 +83,7 @@ const Plotgraph = () => {
 							},
 							pitch: 0,
 							zoom: 4,
-							style: "dark",
+							style: "light",
 						},
 					});
 				}

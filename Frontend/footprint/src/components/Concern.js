@@ -7,7 +7,7 @@ const Concern = () => {
 		<div className="concern">
 			<h3 className="concern__title">
 				{" "}
-				<span>~</span> Read Latest Concerns..!
+				<span>~</span> Read Latest Concerns
 			</h3>
 
 			<div className="concern__articlebox">
@@ -15,7 +15,7 @@ const Concern = () => {
 					<Articles
 						title={"The Dangers of Plastic Pollution"}
 						content={
-							"2020 has been a year of stark realities. Among these stark realities is the recognition that our environment—in fact, the health of the planet we call home—is in danger...."
+							"2020 has been a year of stark realities. Among these stark realities is the recognition that...."
 						}
 						link={
 							"https://www.nrdc.org/experts/dillon-hanson-ahumada/dangers-plastic-pollution"
