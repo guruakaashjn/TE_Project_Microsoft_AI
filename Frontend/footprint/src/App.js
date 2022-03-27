@@ -9,9 +9,9 @@ function App() {
 	return (
 		<div className="App">
 			<Routes>
-				<Route path="/" element={<Landing />} />
-				<Route path="/dataset" element={<Dataset />} />
-				<Route path="/visualisation" element={<Plotgraph />} />
+				<Route path="/" element={<Landing home={true} />} />
+				<Route path="/dataset" element={<Dataset home={false} />} />
+				<Route path="/visualisation" element={<Plotgraph home={false} />} />
 			</Routes>
 		</div>
 	);

@@ -1,18 +1,16 @@
+from http.client import ResponseNotReady
 import json
 import os
 import csv
 import pickle
-from textwrap import indent
 import pandas as pd
-from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
+from parso import parse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.conf import settings
 # import plotly.plotly as py
-import chart_studio.plotly as py
-import plotly.figure_factory as ff
-import plotly.tools as tl
+from .customPagination import CustomPagination
 
 #For visualization
 import plotly.graph_objs as go
@@ -43,17 +41,90 @@ def home(request):
 
 @api_view(['GET'])
 def csv_to_json(request):
+    pagination_class = CustomPagination
     print(os.path.join(settings.BASE_DIR, 'dataset.csv'))
     csvFilePath = open(os.path.join(settings.BASE_DIR, 'dataset.csv'))
     #read csv file
     df = pd.read_csv(csvFilePath)
+    print(type(df))
     result = df.to_json(orient="split")
-    # print(result)
-    parsed = json.loads(result)
-    parsed = json.dumps(parsed, indent=2)
-    # print(parsed)
-    # results = JsonSerializer(parsed, many=True).data
-    return Response(parsed)
+    print(type(result))
+    parsed_dict = json.loads(result)
+    # print(type(parsed_dict))
+    # parsed = json.dumps(parsed_dict)
+    # print(type(parsed))
+    # # print(parsed)
+    return Response(parsed_dict['data'])
+
+@api_view(['GET'])
+def dataset(request):
+    page = int(request.query_params["page"])
+    # print(page)
+    # limit = 50
+    upperlimit = 50*page
+    lowerlimit = 50*(page-1) + 1
+
+    #! FOR OPTIMIZED PAGINATION NEEDS WORK
+    # csvFilePath = open(os.path.join(settings.BASE_DIR, 'dataset.csv'))
+    # #read csv file
+    # df = pd.read_csv(csvFilePath)
+    # data = []
+    # count = 1
+    # #Region_Area_State,Year,Wind_Speed,Rainfall_Actual,Rainfall_Normal,Population_Urban,Population_Rural,MSW,Recycling_Units,Atmosheric_Microplastics,Beach_Plastics,Climate_Change,Natural_Calamities,Plastic_Production,Plastic_Production_Class
+    # for i in range(lowerlimit, upperlimit):
+    #     data.append({
+    #         "Sr.no": i,
+    #         "Year": df['Year'][i],
+    #         "State": df['Region_Area_State'][i],
+    #         "Wind Speed": float(df['Wind_Speed'][i]),
+    #         "Rainfall": float(df['Rainfall_Actual'][i]),
+    #         "Urban Population": float(df['Population_Urban'][i]),
+    #         "Rural Population": float(df['Population_Rural'][i]),
+    #         "MSW": float(df['MSW'][i]),
+    #         "Recycling Plants": float(df['Recycling_Units'][i]),
+    #         "Atmospheric microPlastics": float(df['Atmosheric_Microplastics'][i]),
+    #         "Beach Plastics": float(df['Beach_Plastics'][i]),
+    #         "Climate Change": float(df['Climate_Change'][i]),
+    #         "Natural Calamities": float(df['Natural_Calamities'][i]),
+    #         "Plastic Production": float(df['Plastic_Production'][i]),
+    #         "Plastic Production Class": df['Plastic_Production_Class'][i]
+    #     })
+
+    with open(os.path.join(settings.BASE_DIR ,'dataset.csv'), 'r' ) as file:
+        reader = csv.reader(file)
+        # To skip the titles
+        next(reader)
+        data = []
+        count = 1
+        # creating custom pagination here not django relateds
+        for row in reader:
+            if (count >= lowerlimit and count <= upperlimit):
+                data.append(
+                    {
+                        "Sr.no": count,
+                        "Year": row[1],
+                        "State": row[0],
+                        "Wind Speed": row[2],
+                        "Rainfall": row[3],
+                        "Urban Population": row[5],
+                        "Rural Population": row[6],
+                        "MSW": row[7],
+                        # "Recycling Plants": row[8],
+                        "Atmospheric MicroPlastics": row[9],
+                        "Beach Plastics": row[10],
+                        "Climate Change": row[11],
+                        "Natural Calamities": row[12],
+                        "Plastic Production": row[13],
+                        "Plastic Production Class": row[14]
+                    }
+                )
+            count+=1
+        # print(type(data))
+    parsed = json.dumps(data)
+    result = json.loads(parsed)
+    # return JsonResponse(data, safe=False)
+    return Response(result)
+    
 
 @api_view(['GET', 'POST'])
 def data_visualisation(request):

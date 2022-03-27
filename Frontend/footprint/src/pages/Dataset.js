@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../css/Dataset.css";
+import ReactPaginate from "react-paginate";
 import { Skeleton } from "@mui/material";
 import Header from "../components/Header";
-import { Button } from "@mui/material";
-import DownloadIcon from "@mui/icons-material/Download";
-import Pagination from "react-js-pagination";
-import { saveAs } from "file-saver";
-// require("bootstrap/less/bootstrap.less");
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
-const Dataset = () => {
+const Dataset = ({ home }) => {
 	const [csvData, setCsvData] = useState(null);
-	const [activePage, setActivePage] = useState(1);
+	const [page, setPage] = useState(1);
 
 	useEffect(() => {
 		const url = "http://localhost:8000";
@@ -23,23 +21,25 @@ const Dataset = () => {
 
 		try {
 			const getDataset = async () => {
-				const response = await axios.get(`${url}/api/dataset`, config);
+				const response = await axios.get(
+					`${url}/api/get-dataset?page=${page}`,
+					config
+				);
 				// console.log(response.data);
 				if (response.status === 200) {
-					const jsonData = JSON.parse(response.data);
-					setCsvData(jsonData);
-					console.log(jsonData);
+					// const jsonData = JSON.parse(response.data);
+					setCsvData(response.data);
+					console.log(response.data);
 				}
 			};
 			getDataset();
 		} catch (error) {
 			console.log(error);
 		}
-	}, []);
+	}, [page]);
 
-	const handlePageChange = (pageNumber) => {
-		console.log(`active page is ${pageNumber}`);
-		setActivePage(pageNumber);
+	const handlePageChange = (event) => {
+		setPage(event.selected + 1);
 	};
 
 	const downloadFile = async () => {
@@ -60,7 +60,7 @@ const Dataset = () => {
 					.then((response) => {
 						console.log("Successful");
 						console.log(response);
-						saveAs(response.data, "plasticFootprint.csv");
+						// saveAs(response.data, "plasticFootprint.csv");
 					})
 					.catch((e) => console.log(e));
 			};
@@ -73,60 +73,62 @@ const Dataset = () => {
 
 	return (
 		<div className="Dataset__page">
-			<Header />
+			<Header home={home} />
 			<div className="dataset__header">
 				<h3 className="Dataset__title">
 					{" "}
 					<span>~</span> Dataset
 				</h3>
-				<Button
-					variant="outlined"
-					onClick={downloadFile}
-					startIcon={<DownloadIcon />}
-				>
-					Download CSV
-				</Button>
 			</div>
-
-			<div className="Dataset">
-				{csvData ? (
-					<div>
-						<table
-							className="Dataset__table"
-							// style={{ width: "100%", minWidth: "1000px" }}
-						>
-							<thead>
-								<tr>
-									{csvData.columns.map((title, titleKey) => {
-										return <th key={titleKey}>{title}</th>;
+			<div className="Dataset__container">
+				<div className="Dataset">
+					{csvData ? (
+						<div>
+							<table
+								className="Dataset__table"
+								// style={{ width: "100%", minWidth: "1000px" }}
+							>
+								<thead>
+									<tr>
+										{Object.keys(csvData[0]).map((title, titleKey) => {
+											console.log(title);
+											return <th key={titleKey}>{title}</th>;
+										})}
+									</tr>
+								</thead>
+								<tbody>
+									{csvData.map((row, rowKey) => {
+										// console.log(row);
+										return (
+											<tr key={rowKey}>
+												{Object.keys(row).map((col, colKey) => {
+													return <td key={colKey}>{row[col]}</td>;
+												})}
+											</tr>
+										);
 									})}
-								</tr>
-							</thead>
-							<tbody>
-								{csvData.data.map((row, rowKey) => {
-									return (
-										<tr key={rowKey}>
-											{row.map((col, colKey) => {
-												return <td key={colKey}>{col}</td>;
-											})}
-										</tr>
-									);
-								})}
-							</tbody>
-						</table>
-						{/* Requires bootstrap3 */}
-						{/* <Pagination
-							activePage={activePage}
-							itemsCountPerPage={10}
-							totalItemsCount={450}
-							pageRangeDisplayed={5}
-							onChange={() => handlePageChange(3)}
-						/> */}
-					</div>
-				) : (
-					<Skeleton variant="rectangular" className="Dataset__skeleton" />
-				)}
+								</tbody>
+							</table>
+							{/* Requires bootstrap3 */}
+						</div>
+					) : (
+						<Skeleton variant="rectangular" className="Dataset__skeleton" />
+					)}
+				</div>
 			</div>
+			<ReactPaginate
+				breakLabel="..."
+				nextLabel={<ArrowForwardIosIcon fontSize="medium" />}
+				onPageChange={handlePageChange}
+				pageCount={7}
+				previousLabel={<ArrowBackIosIcon fontSize="medium" />}
+				containerClassName={"navigationButtons"}
+				previousLinkClassName={"previousButton"}
+				nextLinkClassName={"nextButton"}
+				disabledClassName={"navigationDisabled"}
+				activeClassName={"navigationActive"}
+				renderOnZeroPageCount={null}
+			/>
 		</div>
 	);
 };

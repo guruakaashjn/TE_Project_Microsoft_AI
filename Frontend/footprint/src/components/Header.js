@@ -12,7 +12,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 
-const Header = ({ navbar }) => {
+const Header = ({ home }) => {
 	const path = {
 		Home: "/",
 		Visualisation: "/visualisation",
@@ -20,6 +20,7 @@ const Header = ({ navbar }) => {
 		Dataset: "/dataset",
 		"About Us": "/",
 	};
+	console.log(home);
 	const pages = ["Home", "Visualisation", "Models", "Dataset", "About Us"];
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
 	const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -40,7 +41,7 @@ const Header = ({ navbar }) => {
 	};
 
 	return (
-		<div className="header">
+		<div className={home ? "header" : "header-static"}>
 			<div className="header__nav">
 				<AppBar position="static" className="header__appbar">
 					<Container maxWidth="xl">

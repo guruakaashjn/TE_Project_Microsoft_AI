@@ -8,6 +8,16 @@
 	justify-content: center;
 }
 
+.header-static {
+	position: static;
+	width: 100%;
+	background-color: #050706 !important;
+	/* can be changed to 0.9 to give the same efect as header */
+	opacity: 1;
+	display: flex;
+	justify-content: center;
+}
+
 .header__nav {
 	width: 80%;
 }

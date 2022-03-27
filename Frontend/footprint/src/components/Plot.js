@@ -7,7 +7,7 @@ import createPlotlyComponent from "react-plotly.js/factory";
 const Plotly = window.Plotly;
 const Plot = createPlotlyComponent(Plotly);
 
-const Plotgraph = () => {
+const Plotgraph = ({ home }) => {
 	const [plotData, setPlotData] = useState([]);
 	const [data, setData] = useState([]);
 	const [layout, setLayout] = useState({});
@@ -112,7 +112,7 @@ const Plotgraph = () => {
 
 	return (
 		<>
-			<Header />
+			<Header home={home} />
 			<div className="Plotgraph">
 				<div className="Plotgraph__header">
 					<Dropdown options={options} />

@@ -6,14 +6,14 @@ import landingClip from "../video/ocean-4920792_1920.jpg";
 import Concern from "../components/Concern";
 import Footer from "../components/Footer";
 
-const Landing = () => {
+const Landing = ({ home }) => {
 	return (
 		<div className="landing">
 			<section id="landing__top">
 				<div className="landing__container">
 					<img className="landing__clip" src={landingClip} alt="Landing-clip" />
 					{/* <Navbar /> */}
-					<Header navbar={true} />
+					<Header home={home} />
 					<div className="Landing__content">
 						<div className="content">
 							<Typography
