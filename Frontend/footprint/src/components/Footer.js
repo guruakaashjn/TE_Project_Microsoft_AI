@@ -83,10 +83,18 @@ const Footer = () => {
 							Contact Us
 						</Typography>
 						<div className="Footer__links">
-							<Link to="">Ajay Nair</Link>
-							<Link to="">Guru Akaash Janthalur</Link>
-							<Link to="">Manigandan Kasimani</Link>
-							<Link to="">Varun Tripathy</Link>
+							<Link to="https://www.linkedin.com/in/ajay-nair-837986155">
+								Ajay Nair
+							</Link>
+							<Link to="https://www.linkedin.com/in/guru-akaash-janthalur-n-5262101b9/">
+								Guru Akaash Janthalur
+							</Link>
+							<Link to="https://www.linkedin.com/in/manigandan-kasimani-537964213/?_l=en_US">
+								Manigandan Kasimani
+							</Link>
+							<Link to="https://www.linkedin.com/in/varun-tripathy-70934921b">
+								Varun Tripathy
+							</Link>
 						</div>
 					</div>
 				</div>

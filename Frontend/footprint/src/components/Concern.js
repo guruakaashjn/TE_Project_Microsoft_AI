@@ -2,6 +2,7 @@ import React from "react";
 import "../css/Concern.css";
 import unsplash from "../video/naja-bertolt-jensen-FxnqdmKBJps-unsplash.jpg";
 import UnoConference from "../video/uno_conference.jpg";
+import microplastics from "../video/microplastic.jpg";
 import irreversible from "../video/irreversible";
 import DustonWoodhouse from "../video/dustan-woodhouse-RUqoVelx59I-unsplash(1).jpg";
 import Articles from "./Articles";
@@ -63,7 +64,13 @@ const Concern = () => {
 							"Plastic emissions are trending upward even though awareness about plastic pollution among scientists and the public has increased significantly in recent years...."
 						}
 					/>
-					<Articles />
+					<Articles
+						image={microplastics}
+						title={"14 million tonnes of microplastics on sea"}
+						content={
+							"The world's sea floor is littered with an estimated 14 million tonnes of microplastics, broken down from the masses...."
+						}
+					/>
 				</div>
 			</div>
 		</div>
