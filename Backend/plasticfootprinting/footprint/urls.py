@@ -5,8 +5,9 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='index'),
-    path('dataset/', views.csv_to_json, name='csvtojson'),
+    # path('dataset/', views.csv_to_json, name='csvtojson'),
     path('get-dataset/', views.dataset, name='dataset'),
     path('dataset/download-dataset', views.download_csv, name='download-dataset'),
-    path('recycling-plant/', views.recycling_plant, name='recycling-plant')
+    path('recycling-plant/', views.recycling_plant, name='recycling-plant'),
+    path('state-wise/scatterplot/',views.state_wise_scatter, name='state-wise-scatter')
 ]

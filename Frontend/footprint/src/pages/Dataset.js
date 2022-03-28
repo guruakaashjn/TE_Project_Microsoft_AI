@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../css/Dataset.css";
+import "../css/Footer.css";
+import Footer from "../components/Footer";
 import ReactPaginate from "react-paginate";
 import { Skeleton } from "@mui/material";
 import Header from "../components/Header";
@@ -129,6 +131,12 @@ const Dataset = ({ home }) => {
 				activeClassName={"navigationActive"}
 				renderOnZeroPageCount={null}
 			/>
+
+			<section id="Landing__footer">
+				<div className="footer__container">
+					<Footer />
+				</div>
+			</section>
 		</div>
 	);
 };

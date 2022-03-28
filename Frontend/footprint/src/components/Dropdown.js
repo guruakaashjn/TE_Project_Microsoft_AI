@@ -5,21 +5,33 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-export default function BasicSelect({ options }) {
+export default function BasicSelect({ options, setCurrentOption }) {
 	const [option, setOption] = useState("");
 
 	const handleChange = (event) => {
 		setOption(event.target.value);
+		setCurrentOption(event.target.value);
 	};
 
 	return (
-		<Box className="Dropdown" sx={{ minWidth: 200 }}>
-			<FormControl className="Dropdown__formControl" fullWidth>
-				<InputLabel id="demo-simple-select-label" sx={{ color: "#ffc947" }}>
+		<Box className="Dropdown" sx={{ minWidth: 200, color: "white" }}>
+			<FormControl
+				className="Dropdown__formControl"
+				fullWidth
+				sx={{ borderColor: "white" }}
+			>
+				<InputLabel
+					id="demo-simple-select-label"
+					sx={{ color: "white", borderColor: "white" }}
+				>
 					Choose visualisation
 				</InputLabel>
 				<Select
-					sx={{ borderColor: "#ffc947" }}
+					sx={{
+						borderColor: "white",
+						backgroundColor: "#050706",
+						color: "white",
+					}}
 					className="Dropdown__select"
 					labelId="demo-simple-select-label"
 					id="demo-simple-select"

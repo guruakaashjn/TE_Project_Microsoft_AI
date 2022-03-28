@@ -21,22 +21,22 @@ const Articles = ({ title, content, image, link }) => {
 					image={image || articleImage}
 					alt="green iguana"
 				/>
-				<CardContent>
+				<CardContent sx={{ backgroundColor: "white", color: "#050706" }}>
 					<Typography
 						gutterBottom
 						variant="h5"
 						sx={{ fontWeight: "bold" }}
-						color="#52734D"
+						color="#050706"
 						component="div"
 					>
 						{title || "Lizard"}
 					</Typography>
-					<Typography variant="body2" color="#52734D">
+					<Typography variant="body2" color="#050706">
 						{content ||
 							"Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica"}
 					</Typography>
 				</CardContent>
-				<CardActions>
+				<CardActions sx={{ backgroundColor: "white" }}>
 					<a
 						href={link}
 						className="articles__link"

@@ -13,3 +13,18 @@
 .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
 	border-color: #ffc947 !important;
 }
+
+.MuiOutlinedInput-root,
+.MuiInputBase-root,
+.MuiInputBase-colorPrimary,
+.Mui-focused,
+.MuiInputBase-formControl,
+.Dropdown__select,
+.css-nqj7z6-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
+	border-color: 1px solid white;
+}
+
+img,
+svg {
+	color: white !important;
+}

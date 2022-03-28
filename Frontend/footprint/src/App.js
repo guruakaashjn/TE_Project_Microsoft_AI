@@ -3,6 +3,7 @@ import Concern from "./components/Concern";
 import Dataset from "./pages/Dataset";
 import Landing from "./pages/Landing";
 import Plotgraph from "./components/Plot";
+import StatewiseScatter from "./components/StatewiseScatter";
 import { Routes, Route } from "react-router-dom";
 
 function App() {

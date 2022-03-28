@@ -68,3 +68,9 @@
 	display: flex;
 	justify-content: center;
 }
+
+#Landing__footer {
+	display: flex;
+	background-color: #050706;
+	justify-content: center;
+}

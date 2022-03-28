@@ -3,6 +3,7 @@ import json
 import os
 import csv
 import pickle
+import numpy as np
 import pandas as pd
 from django.http import HttpResponse, JsonResponse
 from parso import parse
@@ -40,55 +41,12 @@ def home(request):
     return Response(api_urls)
 
 @api_view(['GET'])
-def csv_to_json(request):
-    pagination_class = CustomPagination
-    print(os.path.join(settings.BASE_DIR, 'dataset.csv'))
-    csvFilePath = open(os.path.join(settings.BASE_DIR, 'dataset.csv'))
-    #read csv file
-    df = pd.read_csv(csvFilePath)
-    print(type(df))
-    result = df.to_json(orient="split")
-    print(type(result))
-    parsed_dict = json.loads(result)
-    # print(type(parsed_dict))
-    # parsed = json.dumps(parsed_dict)
-    # print(type(parsed))
-    # # print(parsed)
-    return Response(parsed_dict['data'])
-
-@api_view(['GET'])
 def dataset(request):
     page = int(request.query_params["page"])
     # print(page)
     # limit = 50
     upperlimit = 50*page
     lowerlimit = 50*(page-1) + 1
-
-    #! FOR OPTIMIZED PAGINATION NEEDS WORK
-    # csvFilePath = open(os.path.join(settings.BASE_DIR, 'dataset.csv'))
-    # #read csv file
-    # df = pd.read_csv(csvFilePath)
-    # data = []
-    # count = 1
-    # #Region_Area_State,Year,Wind_Speed,Rainfall_Actual,Rainfall_Normal,Population_Urban,Population_Rural,MSW,Recycling_Units,Atmosheric_Microplastics,Beach_Plastics,Climate_Change,Natural_Calamities,Plastic_Production,Plastic_Production_Class
-    # for i in range(lowerlimit, upperlimit):
-    #     data.append({
-    #         "Sr.no": i,
-    #         "Year": df['Year'][i],
-    #         "State": df['Region_Area_State'][i],
-    #         "Wind Speed": float(df['Wind_Speed'][i]),
-    #         "Rainfall": float(df['Rainfall_Actual'][i]),
-    #         "Urban Population": float(df['Population_Urban'][i]),
-    #         "Rural Population": float(df['Population_Rural'][i]),
-    #         "MSW": float(df['MSW'][i]),
-    #         "Recycling Plants": float(df['Recycling_Units'][i]),
-    #         "Atmospheric microPlastics": float(df['Atmosheric_Microplastics'][i]),
-    #         "Beach Plastics": float(df['Beach_Plastics'][i]),
-    #         "Climate Change": float(df['Climate_Change'][i]),
-    #         "Natural Calamities": float(df['Natural_Calamities'][i]),
-    #         "Plastic Production": float(df['Plastic_Production'][i]),
-    #         "Plastic Production Class": df['Plastic_Production_Class'][i]
-    #     })
 
     with open(os.path.join(settings.BASE_DIR ,'dataset.csv'), 'r' ) as file:
         reader = csv.reader(file)
@@ -131,9 +89,45 @@ def data_visualisation(request):
     year = request.body.year
 
 
+# @api_view(['GET', 'POST'])
+# def choropleth(request):
+#     # year = request.query_params.year
+#     df = pd.read_csv(os.path.join(settings.BASE_DIR, 'dataset.csv'))
+#     df.drop(columns=['Wind_Speed', 'Rainfall_Actual', 'Rainfall_Normal', 'Population_Urban', 'Population_Rural', 'MSW', 'Recycling_Units', 'Atmosheric_Microplastics', 'Beach_Plastics','Climate_Change', 'Natural_Calamities', 'Plastic_Production_Class'],inplace=True)
+#     print(df.shape())
+#     india_states = json.load(open(os.path.join(settings.BASE_DIR), 'india.json'))
+#     df_year = pd.DataFrame(columns=['State', 'id', 'plastic'])
+#     df_year['State'] = df['Region_Area_State'].unique()
+#     state_id_map = {}
+#     for feature in india_states["features"]:
+#         feature["id"] = feature["properties"]["state_code"]
+#         state_id_map[feature["properties"]["st_nm"]] = feature["id"]
+
+
+#@ Scatter map statewise
+@api_view(['GET'])
+def state_wise_scatter(request):
+    state_data = pd.read_csv(os.path.join(settings.BASE_DIR, 'Rough_All_City - Sheet1.csv'))
+    state_data['Total_waste_generated_Log'] = np.log(state_data['Total_waste_generated_TPA'])
+    state_data['Total_waste_generated_Log'] = state_data['Total_waste_generated_Log'].abs()
+
+    site_lat = state_data.Latitude
+    site_lon = state_data.Longitude
+    locations_name = "State Name : " + state_data.State
+    plastic_amount = state_data['Total_waste_generated_TPA']
+
+    data = {
+        "latitude": site_lat,
+        "longitude": site_lon,
+        "locations_name": f"{locations_name} \n {plastic_amount}",
+        "plastic_amount": plastic_amount,
+        "color": state_data.Total_waste_generated_Log,
+        "size": plastic_amount*5 
+    }
+    return Response(data)
+
 @api_view(['GET'])
 def download_csv(request):
-    # file_type = req.params.csv
     response = Response(content_type='text/csv')
     writer = csv.writer(response)
     df = pd.read_csv(os.path.join(settings.BASE_DIR, 'dataset.csv'))
@@ -141,6 +135,7 @@ def download_csv(request):
         writer.writerow(line)
     response['Content-Disposition'] = 'attachment; filename="FootprintAnalysis.csv"'
     return response
+
 
 @api_view(['GET', 'POST'])
 def recycling_plant(request):
@@ -156,7 +151,50 @@ def recycling_plant(request):
         "materialsAccepted": dataset["Materials_Accepted"].to_list(),
         "recycledProducts": dataset["Recycled_Products"].to_list(),
     }
-    # jsonData = json.dumps(recycling_data, allow_nan=True, sort_keys=True)
-    # jsonData = json.loads(jsonData)
-
     return Response(recycling_data)
+
+
+    #! FOR OPTIMIZED PAGINATION NEEDS WORK
+    # csvFilePath = open(os.path.join(settings.BASE_DIR, 'dataset.csv'))
+    # #read csv file
+    # df = pd.read_csv(csvFilePath)
+    # data = []
+    # count = 1
+    # #Region_Area_State,Year,Wind_Speed,Rainfall_Actual,Rainfall_Normal,Population_Urban,Population_Rural,MSW,Recycling_Units,Atmosheric_Microplastics,Beach_Plastics,Climate_Change,Natural_Calamities,Plastic_Production,Plastic_Production_Class
+    # for i in range(lowerlimit, upperlimit):
+    #     data.append({
+    #         "Sr.no": i,
+    #         "Year": df['Year'][i],
+    #         "State": df['Region_Area_State'][i],
+    #         "Wind Speed": float(df['Wind_Speed'][i]),
+    #         "Rainfall": float(df['Rainfall_Actual'][i]),
+    #         "Urban Population": float(df['Population_Urban'][i]),
+    #         "Rural Population": float(df['Population_Rural'][i]),
+    #         "MSW": float(df['MSW'][i]),
+    #         "Recycling Plants": float(df['Recycling_Units'][i]),
+    #         "Atmospheric microPlastics": float(df['Atmosheric_Microplastics'][i]),
+    #         "Beach Plastics": float(df['Beach_Plastics'][i]),
+    #         "Climate Change": float(df['Climate_Change'][i]),
+    #         "Natural Calamities": float(df['Natural_Calamities'][i]),
+    #         "Plastic Production": float(df['Plastic_Production'][i]),
+    #         "Plastic Production Class": df['Plastic_Production_Class'][i]
+    #     })
+
+
+#! PREVIOUS DATASET IMPLEMENTATION
+   # @api_view(['GET'])
+# def csv_to_json(request):
+#     pagination_class = CustomPagination
+#     print(os.path.join(settings.BASE_DIR, 'dataset.csv'))
+#     csvFilePath = open(os.path.join(settings.BASE_DIR, 'dataset.csv'))
+#     #read csv file
+#     df = pd.read_csv(csvFilePath)
+#     print(type(df))
+#     result = df.to_json(orient="split")
+#     print(type(result))
+#     parsed_dict = json.loads(result)
+#     # print(type(parsed_dict))
+#     # parsed = json.dumps(parsed_dict)
+#     # print(type(parsed))
+#     # # print(parsed)
+#     return Response(parsed_dict['data'])
