@@ -2,8 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import Typography from "@mui/material/Typography";
 import "../css/Landing.css";
-import landingClip from "../video/ocean-4920792_1920.jpg";
-import Concern from "../components/Concern";
+import "../App.css";
 import Carousel from "../components/Carousel";
 import Footer from "../components/Footer";
 
@@ -12,17 +11,14 @@ const Landing = ({ home }) => {
 		<div className="landing">
 			<section id="landing__top">
 				<div className="landing__container">
-					<img className="landing__clip" src={landingClip} alt="Landing-clip" />
-					{/* <Navbar /> */}
 					<Header home={home} />
 					<div className="Landing__content">
 						<div className="content">
 							<Typography
 								variant="h1"
+								className="Landing__Typography__header"
 								sx={{
 									fontFamily: '"Merriweather", serif',
-									my: 1,
-									textShadow: "1px 1px 2px black",
 								}}
 							>
 								{" "}
@@ -32,11 +28,9 @@ const Landing = ({ home }) => {
 
 							<Typography
 								variant="h4"
+								className="Landing__Typography__body"
 								sx={{
 									fontFamily: '"Merriweather", serif',
-									my: 1,
-									fontSize: "2rem",
-									textShadow: "1px 1px 2px black",
 								}}
 							>
 								The greatest threat to humanity is the belief that someone else
@@ -47,13 +41,15 @@ const Landing = ({ home }) => {
 				</div>
 			</section>
 
-			<section id="Landing__concern">
+			{/* <section id="Landing__concern">
 				<div className="concern__container">
 					<Concern />
 				</div>
-			</section>
+			</section> */}
 
-			<Carousel />
+			<section id="Landing__news">
+				<Carousel />
+			</section>
 
 			<section id="Landing__footer">
 				<div className="footer__container">

@@ -1,0 +1,34 @@
+:root {
+	--font-body: "Merriweather", serif;
+	--font-title: "Merienda", cursive;
+	--bg-dark: #050706;
+	--bg-accent: #989898;
+	--font-size-700: 3rem;
+	--font-size-500: 2rem;
+	--font-size-400: 1.25rem;
+	--font-size-300: 1rem;
+	--opacity: 0.8;
+}
+
+.css-4t3x6l-MuiPaper-root-MuiDrawer-paper,
+.MuiPaper-root {
+	background-color: var(--bg-dark) !important;
+	opacity: 0.95;
+	/* height: 100vh;*/
+	position: sticky;
+}
+
+.Drawer__List {
+	padding-inline: var(--font-size-400);
+}
+
+.List__text span {
+	font-weight: 700;
+	font-family: var(--font-title);
+	font-size: var(--font-size-400);
+}
+
+.List__text span:hover {
+	border-bottom: 1px solid var(--bg-accent);
+	text-shadow: 1px 1px 2px var(--bg-accent);
+}

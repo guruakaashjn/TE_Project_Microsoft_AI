@@ -1,3 +1,13 @@
+:root {
+	--font-body: "Merriweather", serif;
+	--font-title: "Merienda", cursive;
+	--bg-dark: #050706;
+	--bg-accent: #989898;
+	--font-size-700: 3rem;
+	--font-size-500: 2rem;
+	--font-size-300: 1rem;
+}
+
 .header {
 	position: absolute;
 	top: 0;
@@ -35,28 +45,8 @@
 	justify-content: end;
 }
 
-/* .Navbar {
-	position: absolute;
-	top: 0;
-	width: 100%;
-	text-align: center;
-	display: flex;
-	justify-content: center;
+@media screen and (max-width: 480px) {
+	.header {
+		padding-block: 0.8rem;
+	}
 }
-
-.Navbar__left {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-}
-
-.Navbar__center {
-	display: flex;
-	justify-content: center;
-}
-
-.Navbar__right {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-} */
