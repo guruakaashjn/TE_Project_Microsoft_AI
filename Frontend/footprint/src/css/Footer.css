@@ -73,4 +73,6 @@
 	display: flex;
 	background-color: #050706;
 	justify-content: center;
+	/* position: absolute;
+	bottom: 0; */
 }

@@ -21,7 +21,9 @@ const Articles = ({ title, content, image, link }) => {
 					image={image || articleImage}
 					alt="green iguana"
 				/>
-				<CardContent sx={{ backgroundColor: "white", color: "#050706" }}>
+				<CardContent
+					sx={{ height: 200, backgroundColor: "white", color: "#050706" }}
+				>
 					<Typography
 						gutterBottom
 						variant="h5"

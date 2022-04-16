@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import "../css/Landing.css";
 import landingClip from "../video/ocean-4920792_1920.jpg";
 import Concern from "../components/Concern";
+import Carousel from "../components/Carousel";
 import Footer from "../components/Footer";
 
 const Landing = ({ home }) => {
@@ -51,6 +52,8 @@ const Landing = ({ home }) => {
 					<Concern />
 				</div>
 			</section>
+
+			<Carousel />
 
 			<section id="Landing__footer">
 				<div className="footer__container">

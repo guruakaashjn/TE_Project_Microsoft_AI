@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/Header.css";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -11,17 +11,24 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
+import { useTheme } from "@mui/system";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import DrawerComp from "./DrawerComp";
 
 const Header = ({ home }) => {
+	const theme = useTheme();
+	console.log(theme);
+	const isMatch = useMediaQuery(theme.breakpoints.down("sm"));
+	console.log(isMatch);
 	const path = {
 		Home: "/",
 		Visualisation: "/visualisation",
 		Models: "/",
 		Dataset: "/dataset",
-		"About Us": "/",
+		Preventions: "/preventions",
 	};
 	console.log(home);
-	const pages = ["Home", "Visualisation", "Models", "Dataset", "About Us"];
+	const pages = ["Home", "Visualisation", "Models", "Dataset", "Preventions"];
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
 	const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -38,6 +45,12 @@ const Header = ({ home }) => {
 
 	const handleCloseUserMenu = () => {
 		setAnchorElUser(null);
+	};
+
+	const [openDrawer, setOpenDrawer] = useState(false);
+
+	const handleOpenDrawer = () => {
+		setOpenDrawer(!openDrawer);
 	};
 
 	return (
@@ -66,12 +79,17 @@ const Header = ({ home }) => {
 									aria-label="account of current user"
 									aria-controls="menu-appbar"
 									aria-haspopup="true"
-									onClick={handleOpenNavMenu}
+									onClick={handleOpenDrawer}
 									color="inherit"
 								>
 									<MenuIcon />
 								</IconButton>
-								<Menu
+								<DrawerComp
+									openDrawer={openDrawer}
+									pages={pages}
+									setOpenDrawer={setOpenDrawer}
+								/>
+								{/* <Menu
 									id="menu-appbar"
 									anchorEl={anchorElNav}
 									anchorOrigin={{
@@ -94,8 +112,10 @@ const Header = ({ home }) => {
 											<Typography textAlign="center">{page}</Typography>
 										</MenuItem>
 									))}
-								</Menu>
+								</Menu> */}
 							</Box>
+
+							{/* This one is for smaller screens */}
 							<Typography
 								variant="h6"
 								noWrap
@@ -135,6 +155,7 @@ const Header = ({ home }) => {
 							</Box>
 						</Toolbar>
 					</Container>
+					<DrawerComp />
 				</AppBar>
 			</div>
 		</div>

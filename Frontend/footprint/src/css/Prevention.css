@@ -1,0 +1,21 @@
+#Prevention__container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Prevention__content {
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	margin: 2.5% 0;
+	padding: 0 24px;
+	justify-content: center;
+	align-items: center;
+}
+
+.Prevention__title {
+	font-size: 28px;
+	font-weight: 700;
+	font-family: "Merienda", cursive;
+}
