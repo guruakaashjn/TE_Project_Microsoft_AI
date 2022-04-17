@@ -13,7 +13,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Carousel = () => {
-	const slickRef = useRef(null);
+	// const slickRef = useRef(null);
 	const options = {
 		dots: true,
 		centerMode: true,

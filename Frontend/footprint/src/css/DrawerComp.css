@@ -22,6 +22,10 @@
 	padding-inline: var(--font-size-400);
 }
 
+/* .Drawer__List .List__button {
+	border-bottom: 1px solid var(--bg-accent);
+} */
+
 .List__text span {
 	font-weight: 700;
 	font-family: var(--font-title);

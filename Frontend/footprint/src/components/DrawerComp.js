@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 // import { createTheme } from "@material-ui/core/styles";
 import { Drawer, List, ListItemButton, ListItemText } from "@mui/material";
 import "../css/DrawerComp.css";
@@ -25,7 +25,7 @@ const DrawerComp = ({ openDrawer, setOpenDrawer, pages }) => {
 				>
 					{pages &&
 						pages.map((key, page) => (
-							<ListItemButton id={key} sx={{ m: 1.5 }}>
+							<ListItemButton className="List__button" id={key} sx={{ m: 1.5 }}>
 								<ListItemText className="List__text">
 									{pages[page]}
 								</ListItemText>

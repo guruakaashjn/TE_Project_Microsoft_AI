@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+// import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import "../css/Footer.css";
 
 const Footer = () => {
@@ -14,39 +14,33 @@ const Footer = () => {
 				<div className="FooterContainer__top">
 					<div className="Footer__left">
 						<Typography
+							className="Footer__Typography__header"
 							variant="h2"
 							noWrap
 							component="div"
-							sx={{
-								mr: 2,
-								my: 2,
-								fontFamily: "'Merienda', cursive",
-								fontSize: "28px",
-								fontWeight: "700",
-								display: { xs: "none", md: "flex" },
-							}}
 						>
 							Plastic Footprint
 						</Typography>
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta
-						nihil provident ipsum error non ex quo totam. Neque distinctio
-						placeat quisquam necessitatibus, possimus debitis odio, repudiandae
-						reiciendis sapiente atque labore!
+						<Typography
+							className="Footer__Typography__body"
+							variant="body"
+							component="div"
+						>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta
+							nihil provident ipsum error non ex quo totam. Neque distinctio
+							placeat quisquam necessitatibus, possimus debitis odio,
+							repudiandae reiciendis sapiente atque labore!
+						</Typography>
 					</div>
 
 					<div className="Footer__center">
 						<Typography
+							className="Footer__Typography__header"
 							variant="h2"
 							noWrap
 							component="div"
 							sx={{
-								mr: 2,
-								my: 2,
-								fontFamily: "'Merienda', cursive",
-								fontSize: "28px",
 								justifyContent: "center",
-								fontWeight: "700",
-								display: { xs: "none", md: "flex" },
 							}}
 						>
 							Connect with us
@@ -66,35 +60,45 @@ const Footer = () => {
 
 					<div className="Footer__right">
 						<Typography
+							className="Footer__Typography__header"
 							variant="h2"
 							noWrap
 							component="div"
 							sx={{
-								mr: 2,
-								my: 2,
-								fontFamily: "'Merienda', cursive",
-								fontSize: "28px",
-								textAlign: "center",
 								justifyContent: "center",
-								fontWeight: "700",
-								display: { xs: "none", md: "flex" },
 							}}
 						>
 							Contact Us
 						</Typography>
 						<div className="Footer__links">
-							<Link to="https://www.linkedin.com/in/ajay-nair-837986155">
+							<a
+								href="https://www.linkedin.com/in/ajay-nair-837986155"
+								target="_blank"
+								rel="noreferrer"
+							>
 								Ajay Nair
-							</Link>
-							<Link to="https://www.linkedin.com/in/guru-akaash-janthalur-n-5262101b9/">
+							</a>
+							<a
+								href="https://www.linkedin.com/in/guru-akaash-janthalur-n-5262101b9/"
+								target="_blank"
+								rel="noreferrer"
+							>
 								Guru Akaash Janthalur
-							</Link>
-							<Link to="https://www.linkedin.com/in/manigandan-kasimani-537964213/?_l=en_US">
+							</a>
+							<a
+								href="https://www.linkedin.com/in/manigandan-kasimani-537964213/?_l=en_US"
+								target="_blank"
+								rel="noreferrer"
+							>
 								Manigandan Kasimani
-							</Link>
-							<Link to="https://www.linkedin.com/in/varun-tripathy-70934921b">
+							</a>
+							<a
+								href="https://www.linkedin.com/in/varun-tripathy-70934921b"
+								target="_blank"
+								rel="noreferrer"
+							>
 								Varun Tripathy
-							</Link>
+							</a>
 						</div>
 					</div>
 				</div>

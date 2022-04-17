@@ -37,9 +37,9 @@
 	opacity: 1 !important;
 }
 
-.header__buttons {
-	/* color: #FFF8B5 !important; */
-}
+/* .header__buttons {
+	color: #FFF8B5 !important;
+} */
 
 .header__navbar {
 	justify-content: end;

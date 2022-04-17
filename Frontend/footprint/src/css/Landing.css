@@ -47,9 +47,11 @@ body {
 	justify-content: center;
 }
 
+/* Typography used in the landing page */
 .content .Landing__Typography__header,
 .content .Landing__Typography__body {
 	margin-block: 1rem;
+	font-family: var(--font-body);
 	font-size: var(--font-size-900);
 	text-shadow: 1px 1px 2px black;
 }
@@ -59,8 +61,7 @@ body {
 }
 
 .Landing__content span {
-	color: #050706;
-	opacity: 0.9;
+	color: var(--bg-dark);
 	font-style: italic;
 }
 
@@ -75,7 +76,7 @@ body {
 
 #Landing__footer {
 	display: flex;
-	background-color: #050706;
+	background-color: var(--bg-dark);
 	justify-content: center;
 }
 
@@ -90,10 +91,11 @@ body {
 
 	.content .Landing__Typography__header {
 		font-size: 2rem;
-		text-shadow: 1px 1px 2px black;
+		font-weight: 500;
 	}
 
 	.content .Landing__Typography__body {
 		font-size: 1.25rem;
+		font-weight: 400;
 	}
 }

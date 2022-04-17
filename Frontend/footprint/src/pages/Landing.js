@@ -14,25 +14,13 @@ const Landing = ({ home }) => {
 					<Header home={home} />
 					<div className="Landing__content">
 						<div className="content">
-							<Typography
-								variant="h1"
-								className="Landing__Typography__header"
-								sx={{
-									fontFamily: '"Merriweather", serif',
-								}}
-							>
+							<Typography variant="h1" className="Landing__Typography__header">
 								{" "}
 								There is no planet
 								<span>"B"</span>{" "}
 							</Typography>
 
-							<Typography
-								variant="h4"
-								className="Landing__Typography__body"
-								sx={{
-									fontFamily: '"Merriweather", serif',
-								}}
-							>
+							<Typography variant="h4" className="Landing__Typography__body">
 								The greatest threat to humanity is the belief that someone else
 								will save it!
 							</Typography>

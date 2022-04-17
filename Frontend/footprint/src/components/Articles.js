@@ -12,6 +12,7 @@ const Articles = ({ title, content, image, link }) => {
 	return (
 		<div className="articles">
 			<Card
+				className="Articles__Card"
 				sx={{ maxWidth: 345, boxShadow: 3 }}
 				style={{ backgroundColor: "#DDFFBC" }}
 			>
@@ -19,15 +20,13 @@ const Articles = ({ title, content, image, link }) => {
 					component="img"
 					height="140"
 					image={image || articleImage}
-					alt="green iguana"
+					alt="news"
 				/>
-				<CardContent
-					sx={{ height: 200, backgroundColor: "white", color: "#050706" }}
-				>
+				<CardContent className="Articles__Card__Content">
 					<Typography
 						gutterBottom
 						variant="h5"
-						sx={{ fontWeight: "bold" }}
+						className="Articles__Card__Title"
 						color="#050706"
 						component="div"
 					>
@@ -38,7 +37,7 @@ const Articles = ({ title, content, image, link }) => {
 							"Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica"}
 					</Typography>
 				</CardContent>
-				<CardActions sx={{ backgroundColor: "white" }}>
+				<CardActions className="Articles__Card__Action">
 					<a
 						href={link}
 						className="articles__link"
