@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Table from "../components/Table";
@@ -71,8 +72,9 @@ const Models = ({ home }) => {
 	const [actual, setActual] = useState("");
 	const [predicted, setPredicted] = useState("");
 	const [currentRegion, setCurrentRegion] = useState("");
-	const [countryActual, setCountryActual] = useState("");
-	const [countryPredicted, setCountryPredicted] = useState("");
+	console.log(currentRegion);
+	// const [countryActual, setCountryActual] = useState("");
+	// const [countryPredicted, setCountryPredicted] = useState("");
 
 	const [rows, setRows] = useState({});
 	const [currentModel, setCurrentModel] = useState("RandomForest Regression");

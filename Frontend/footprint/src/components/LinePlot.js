@@ -5,11 +5,8 @@ const Plot = createPlotlyComponent(Plotly);
 
 const LinePlot = ({ actual, predicted, state, label, model }) => {
 	const data = [actual, predicted];
-	// Plotly.newPlot("linePlot", data);
-	console.log(actual);
-	console.log(predicted);
 	return (
-		<div id="linePlot">
+		<div className="linePlot">
 			<Plot
 				data={data}
 				layout={{

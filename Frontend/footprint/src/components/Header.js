@@ -5,22 +5,19 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Logo from "../video/plastic-bag.png";
 import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
-import { useTheme } from "@mui/system";
-import useMediaQuery from "@mui/material/useMediaQuery";
+// import { useTheme } from "@mui/system";
+// import useMediaQuery from "@mui/material/useMediaQuery";
 import DrawerComp from "./DrawerComp";
 
 const Header = ({ home }) => {
-	const theme = useTheme();
-	console.log(theme);
-	const isMatch = useMediaQuery(theme.breakpoints.down("sm"));
-	console.log(isMatch);
+	// const theme = useTheme();
+	// console.log(theme);
+	// const isMatch = useMediaQuery(theme.breakpoints.down("sm"));
+	// console.log(isMatch);
 	const path = {
 		Home: "/",
 		Visualisation: "/visualisation",
@@ -28,25 +25,25 @@ const Header = ({ home }) => {
 		Dataset: "/dataset",
 		Preventions: "/preventions",
 	};
-	console.log(home);
+	// console.log(home);
 	const pages = ["Home", "Visualisation", "Models", "Dataset", "Preventions"];
-	const [anchorElNav, setAnchorElNav] = React.useState(null);
-	const [anchorElUser, setAnchorElUser] = React.useState(null);
+	// const [anchorElNav, setAnchorElNav] = React.useState(null);
+	// const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-	const handleOpenNavMenu = (event) => {
-		setAnchorElNav(event.currentTarget);
-	};
-	const handleOpenUserMenu = (event) => {
-		setAnchorElUser(event.currentTarget);
-	};
+	// const handleOpenNavMenu = (event) => {
+	// 	setAnchorElNav(event.currentTarget);
+	// };
+	// const handleOpenUserMenu = (event) => {
+	// 	setAnchorElUser(event.currentTarget);
+	// };
 
-	const handleCloseNavMenu = () => {
-		setAnchorElNav(null);
-	};
+	// const handleCloseNavMenu = () => {
+	// 	setAnchorElNav(null);
+	// };
 
-	const handleCloseUserMenu = () => {
-		setAnchorElUser(null);
-	};
+	// const handleCloseUserMenu = () => {
+	// 	setAnchorElUser(null);
+	// };
 
 	const [openDrawer, setOpenDrawer] = useState(false);
 
@@ -92,33 +89,8 @@ const Header = ({ home }) => {
 									pages={pages}
 									setOpenDrawer={setOpenDrawer}
 								/>
-								{/* <Menu
-									id="menu-appbar"
-									anchorEl={anchorElNav}
-									anchorOrigin={{
-										vertical: "bottom",
-										horizontal: "right",
-									}}
-									keepMounted
-									transformOrigin={{
-										vertical: "top",
-										horizontal: "right",
-									}}
-									open={Boolean(anchorElNav)}
-									onClose={handleCloseNavMenu}
-									sx={{
-										display: { xs: "block", md: "none" },
-									}}
-								>
-									{pages.map((page) => (
-										<MenuItem key={page} onClick={handleCloseNavMenu}>
-											<Typography textAlign="center">{page}</Typography>
-										</MenuItem>
-									))}
-								</Menu> */}
 							</Box>
 
-							{/* This one is for smaller screens */}
 							<Typography
 								variant="h6"
 								noWrap
@@ -137,11 +109,11 @@ const Header = ({ home }) => {
 								sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
 							>
 								{pages.map((page) => (
-									<Link to={path[page]}>
+									<Link key={page} to={path[page]}>
 										<Button
 											className="header__buttons"
 											key={page}
-											onClick={handleCloseNavMenu}
+											// onClick={handleCloseNavMenu}
 											sx={{
 												my: 2,
 												mx: 0.8,

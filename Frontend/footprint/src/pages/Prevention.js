@@ -22,7 +22,7 @@ const Prevention = () => {
 				<div className="Prevention__content">
 					<div id="Prevention__reduce">
 						<h3>Reduce</h3>
-						<p>
+						<div>
 							Reduce is all about using lesser resources in the first place.
 							This is one of the most effective yet most difficult method.
 							<br />
@@ -32,11 +32,11 @@ const Prevention = () => {
 								<li>When shopping look for things that lasts long.</li>
 								<li>Choose products with less packaging.</li>
 							</ul>
-						</p>
+						</div>
 					</div>
 					<div id="Prevention__reuse">
 						<h3>Reuse</h3>
-						<p>
+						<div>
 							Before you recycle or dispose of anything, consider whether it has
 							life left in it. For instance, a jam jar can store leftovers.
 							<br />
@@ -56,11 +56,11 @@ const Prevention = () => {
 								</li>
 								<li>Use empty plastic jars as container.</li>
 							</ul>
-						</p>
+						</div>
 					</div>
 					<div id="Prevention__recycle">
 						<h3>Recycle</h3>
-						<p>
+						<div>
 							Recycling is all about making sure you separate items that can be
 							recycled, meaning they can be used for a new purpose.
 							<br />
@@ -72,7 +72,7 @@ const Prevention = () => {
 								<li> Lead batteries </li>
 								<li> Computer Components </li>
 							</ul>
-						</p>
+						</div>
 					</div>
 
 					<div className="alternatives">

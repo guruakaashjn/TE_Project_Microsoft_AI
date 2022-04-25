@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 
 const Table = ({ row }) => {
-	const [year, setYear] = useState(2020);
+	const year = 2020;
 	const states = [
 		"Andaman and Nicobar Islands",
 		"Andhra Pradesh",
@@ -64,7 +64,7 @@ const Table = ({ row }) => {
 
 	console.log(rows[0]);
 
-	const [data, setData] = useState(rows);
+	// const [data, setData] = useState(rows);
 
 	const columns = [
 		{ field: "year", headerName: "Year", sortable: false, width: 70 },
@@ -80,11 +80,6 @@ const Table = ({ row }) => {
 
 	return (
 		<div className="table">
-			{/* Two dropdowns */}
-
-			{/* <div
-				style={{ width: "40%", height: "400px", backgroundColor: "blue" }}
-			></div> */}
 			<DataGrid
 				style={{
 					display: "flex",

@@ -25,8 +25,12 @@ const DrawerComp = ({ openDrawer, setOpenDrawer, pages }) => {
 				>
 					{pages &&
 						pages.map((key, page) => (
-							<ListItemButton className="List__button" id={key} sx={{ m: 1.5 }}>
-								<ListItemText className="List__text">
+							<ListItemButton
+								className="List__button"
+								key={key}
+								sx={{ m: 1.5 }}
+							>
+								<ListItemText key={key} className="List__text">
 									{pages[page]}
 								</ListItemText>
 							</ListItemButton>
