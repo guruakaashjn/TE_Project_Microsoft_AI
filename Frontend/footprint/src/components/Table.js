@@ -79,12 +79,12 @@ const Table = ({ row }) => {
 	];
 
 	return (
-		<div className="table">
+		<div className="table" style={{ width: "50%" }}>
 			<DataGrid
 				style={{
 					display: "flex",
 					justifyContent: "center",
-					width: "60%",
+					width: "100%",
 					height: "500px",
 				}}
 				className="table__grid"

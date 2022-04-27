@@ -8,6 +8,7 @@ import "../css/Footer.css";
 import axios from "axios";
 import Dropdown from "../components/Dropdown";
 import LinePlot from "../components/LinePlot";
+import PiePlot from "../components/PiePlot";
 import Footer from "../components/Footer";
 
 const Models = ({ home }) => {
@@ -16,11 +17,11 @@ const Models = ({ home }) => {
 		years[year] = year;
 	}
 
-	// const models = {
-	// 	"CatBoost Regression": "CatBoost Regression",
-	// 	// "Polynomial Regression": "Polynomial Regression",
-	// 	"RandomForest Regression": "RandomForest Regression",
-	// };
+	const models = {
+		"CatBoost Regression": "CatBoost Regression",
+		// "Polynomial Regression": "Polynomial Regression",
+		"RandomForest Regression": "RandomForest Regression",
+	};
 
 	const states = [
 		"Andaman and Nicobar Islands",
@@ -77,13 +78,13 @@ const Models = ({ home }) => {
 	// const [countryPredicted, setCountryPredicted] = useState("");
 
 	const [rows, setRows] = useState({});
-	// const [currentModel, setCurrentModel] = useState("RandomForest Regression");
+	const [currentModel, setCurrentModel] = useState("RandomForest Regression");
 
 	// This useEffect gets the data from dataset to fill the table
 	useEffect(() => {
 		// console.log(year);
 		// console.log(region);
-		const url = "http://localhost:8000";
+		const url = "https://plasticlessindia.azurewebsites.net";
 		const config = {
 			"Content-Type": "application/json",
 			"Access-Control-Allow-Origin": "*",
@@ -113,7 +114,7 @@ const Models = ({ home }) => {
 
 	// This useEffect returns all the data of the given region
 	// useEffect(() => {
-	// 	const url = "http://localhost:8000";
+	// 	const url = "https://plasticlessindia.azurewebsites.net";
 	// 	const config = {
 	// 		"Content-Type": "application/json",
 	// 		"Access-Control-Allow-Origin": "*",
@@ -149,7 +150,7 @@ const Models = ({ home }) => {
 	// }, [region]);
 
 	// useEffect(() => {
-	// 	const url = "http://localhost:8000";
+	// 	const url = "https://plasticlessindia.azurewebsites.net";
 	// 	const config = {
 	// 		"Content-Type": "application/json",
 	// 		"Access-Control-Allow-Origin": "*",
@@ -181,7 +182,7 @@ const Models = ({ home }) => {
 
 	// to get the predicted value of a state
 	// useEffect(() => {
-	// 	const url = "http://localhost:8000";
+	// 	const url = "https://plasticlessindia.azurewebsites.net";
 	// 	const config = {
 	// 		"Content-Type": "application/json",
 	// 		"Access-Control-Allow-Origin": "*",
@@ -214,7 +215,7 @@ const Models = ({ home }) => {
 	// State wise Catboost regression
 
 	// useEffect(() => {
-	// 	const url = "http://localhost:8000";
+	// 	const url = "https://plasticlessindia.azurewebsites.net";
 	// 	const config = {
 	// 		"Content-Type": "application/json",
 	// 		"Access-Control-Allow-Origin": "*",
@@ -258,32 +259,19 @@ const Models = ({ home }) => {
 		<div>
 			<Header home={home} />
 			<div className="models">
-				<div className="models__dropdown">
-					<Dropdown setVariable={setYear} label={"Years"} labels={years} />
-					{/* <Dropdown
-						setVariable={setRegion}
-						label={"Regions"}
-						labels={regions}
-					/>
-					<Dropdown
-						setVariable={setCurrentModel}
-						label="Models"
-						labels={models}
-					/> */}
-				</div>
 				<div className="models__data">
 					<LinePlot />
-					<Table row={rows} />
+					<div className="models__dropdown">
+						<Dropdown setVariable={setYear} label={"Years"} labels={years} />
+						<Dropdown
+							setVariable={setCurrentModel}
+							label="Models"
+							labels={models}
+						/>
+					</div>
 					<div className="models__plot">
-						{/* <LinePlot data={[predicted]} layout={layout} /> */}
-
-						{/* <LinePlot
-							model={currentModel}
-							label={"Country Wise Prediction of "}
-							actual={actual}
-							predicted={predicted}
-							state={region}
-						/> */}
+						<Table row={rows} />
+						<PiePlot currentModel={currentModel} year={year} />
 					</div>
 				</div>
 			</div>

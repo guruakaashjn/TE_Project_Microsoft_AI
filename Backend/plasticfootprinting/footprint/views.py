@@ -187,24 +187,6 @@ def getDataOneState(request):
     }
     return Response(response)
 
-# @api_view(['GET', 'POST'])
-# def getCBStateAll(request):
-#     print("Catboost all states...")
-#     year = int(request.query_params['year'])
-#     predict_data = []
-#     for state in label_encoded.values():
-#         state_list = state[:35]
-#         # print(state_list)
-#         state_list.append(year)
-#         predict_data.append(state_list)
-#     print(predict_data[:10])
-#     # print("Path: ",os.path.join(settings.BASE_DIR, 'catboost_state'))
-#     model = pickle.load(open(os.path.join(settings.BASE_DIR, 'catboost_country'), 'rb'))
-#     data = model.predict(predict_data)
-#     return Response({
-#         "data": data
-#     })
-
 
 @api_view(['GET', 'POST'])
 def getCBState(request):
@@ -219,7 +201,8 @@ def getCBState(request):
     model = pickle.load(open(os.path.join(settings.BASE_DIR, 'catboost_state'), 'rb'))
     data = model.predict(predict_data)
     return Response({
-        "predictedValue": data
+        "data": data,
+        "states": label_encoded.keys(),
     })
 
 @api_view(['GET', 'POST'])
@@ -246,8 +229,10 @@ def getRandomForestState(request):
         state_list = state[:35]
         state_list.append(year)
         predict_data.append(state_list)
+    print(predict_data[:5])
     model = pickle.load(open(os.path.join(settings.BASE_DIR, 'random_forest'), 'rb'))
     data = model.predict(predict_data)
+    print(data)
     return Response({
         "data": data,
         "states": label_encoded.keys()

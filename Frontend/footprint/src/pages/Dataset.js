@@ -14,7 +14,7 @@ const Dataset = ({ home }) => {
 	const [page, setPage] = useState(1);
 
 	useEffect(() => {
-		const url = "http://localhost:8000";
+		const url = "https://plasticlessindia.azurewebsites.net";
 		const config = {
 			//http://localhost/3000
 			"Content-Type": "application/json",
@@ -45,16 +45,16 @@ const Dataset = ({ home }) => {
 	};
 
 	// const downloadFile = async () => {
-	// 	const url = "http://localhost:8000";
+	// 	const url = "https://plasticlessindia.azurewebsites.net";
 	// 	const config = {
 	// 		//http://localhost/3000
 	// 		responseType: "blob",
 	// 		"Access-Control-Allow-Origin": "*",
-	//
+
 	// 		"Content-Type": "text/csv",
 	// 		"Content-Disposition": 'attachment; filename="plasticFootprint.csv"',
 	// 	};
-	//
+
 	// 	try {
 	// 		const download = async () => {
 	// 			await axios
