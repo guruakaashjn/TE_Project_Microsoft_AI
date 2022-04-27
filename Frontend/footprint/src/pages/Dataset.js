@@ -44,34 +44,34 @@ const Dataset = ({ home }) => {
 		setPage(event.selected + 1);
 	};
 
-	const downloadFile = async () => {
-		const url = "http://localhost:8000";
-		const config = {
-			//http://localhost/3000
-			responseType: "blob",
-			"Access-Control-Allow-Origin": "*",
-
-			"Content-Type": "text/csv",
-			"Content-Disposition": 'attachment; filename="plasticFootprint.csv"',
-		};
-
-		try {
-			const download = async () => {
-				await axios
-					.get(`${url}/api/dataset/download-dataset`, config)
-					.then((response) => {
-						console.log("Successful");
-						console.log(response);
-						// saveAs(response.data, "plasticFootprint.csv");
-					})
-					.catch((e) => console.log(e));
-			};
-			download();
-		} catch (error) {
-			console.log("Something went wrong");
-			console.log(error);
-		}
-	};
+	// const downloadFile = async () => {
+	// 	const url = "http://localhost:8000";
+	// 	const config = {
+	// 		//http://localhost/3000
+	// 		responseType: "blob",
+	// 		"Access-Control-Allow-Origin": "*",
+	//
+	// 		"Content-Type": "text/csv",
+	// 		"Content-Disposition": 'attachment; filename="plasticFootprint.csv"',
+	// 	};
+	//
+	// 	try {
+	// 		const download = async () => {
+	// 			await axios
+	// 				.get(`${url}/api/dataset/download-dataset`, config)
+	// 				.then((response) => {
+	// 					console.log("Successful");
+	// 					console.log(response);
+	// 					// saveAs(response.data, "plasticFootprint.csv");
+	// 				})
+	// 				.catch((e) => console.log(e));
+	// 		};
+	// 		download();
+	// 	} catch (error) {
+	// 		console.log("Something went wrong");
+	// 		console.log(error);
+	// 	}
+	// };
 
 	return (
 		<div className="Dataset__page">
