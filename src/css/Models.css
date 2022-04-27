@@ -19,7 +19,12 @@
 	font-size: var(--font-size-300);
 }
 
+.models__plot {
+	display: flex;
+	justify-content: space-between;
+}
+
 div .MuiDataGrid-columnHeaderTitle {
 	font-weight: bold;
-	font-size: 1.25rem;
+	font-size: 1.1rem;
 }

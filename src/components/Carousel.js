@@ -12,25 +12,6 @@ import "../css/Carousel.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
-	<ArrowForwardIosIcon
-		className="Carousel__icon"
-		fontSize="large"
-		sx={{
-			color: "#050706",
-		}}
-	/>
-);
-
-const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
-	<ArrowBackIosNewIcon
-		className="Carousel__icon"
-		fontSize="large"
-		sx={{
-			color: "#050706",
-		}}
-	/>
-);
 
 const Carousel = () => {
 	// const slickRef = useRef(null);
@@ -38,8 +19,23 @@ const Carousel = () => {
 		dots: true,
 		centerMode: true,
 		centerPadding: 0,
-		nextArrow: <SlickArrowRight />,
-		prevArrow: <SlickArrowLeft />,
+		nextArrow: (
+		<ArrowForwardIosIcon
+			className="Carousel__icon"
+			fontSize="large"
+			sx={{
+				color: "#050706",
+			}}
+		/>
+		),
+		prevArrow: (
+		<ArrowBackIosNewIcon
+			className="Carousel__icon"
+			fontSize="large"
+			sx={{
+				color: "#050706",
+			}}
+		/>),
 		// centerPadding: "60px",
 		slidesToShow: 3,
 		// useCSS: true,

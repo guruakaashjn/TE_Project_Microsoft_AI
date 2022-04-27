@@ -8,16 +8,16 @@
 // import createPlotlyComponent from "react-plotly.js/factory";
 // const Plotly = window.Plotly;
 // const Plot = createPlotlyComponent(Plotly);
-//
+
 // const Plotgraph = ({ home }) => {
 // 	const [plotData, setPlotData] = useState([]);
 // 	const [currentOption, setCurrentOption] = useState("");
 // 	const [data, setData] = useState([]);
 // 	const [layout, setLayout] = useState({});
-//
+
 // 	console.log(currentOption);
 // 	useEffect(() => {
-// 		const url = "http://localhost:8000";
+// 		const url = "https://plasticlessindia.azurewebsites.net";
 // 		const config = {
 // 			//http://localhost/3000
 // 			"Content-Type": "application/json",
@@ -29,7 +29,7 @@
 // 			"ulb-wise": "ulb-wise/scatterplot",
 // 			"state-wise": "state-wise/scatterplot",
 // 		};
-//
+
 // 		try {
 // 			const getPlotData = async () => {
 // 				const response = await axios.get(
@@ -48,7 +48,7 @@
 // 						lat: response.data.latitude,
 // 						mode: "markers",
 // 					};
-//
+
 // 					const commonlayout = {
 // 						autosize: false,
 // 						width: 1000,
@@ -66,7 +66,7 @@
 // 							style: "light",
 // 						},
 // 					};
-//
+
 // 					if (currentOption === "recycling-plants") {
 // 						setData([
 // 							{
@@ -118,25 +118,25 @@
 // 			console.log(error);
 // 		}
 // 	}, [currentOption]);
-//
+
 // 	// console.log(data);
-//
+
 // 	const config = {
 // 		mapboxAccessToken:
 // 			"pk.eyJ1IjoibWFuaTIwMDIiLCJhIjoiY2wwbDZiMDM0MHRiaTNjbTl3ejFzcW1nZCJ9.7nz-xKS_PxZsh5G6TKHgCg",
 // 	};
-//
+
 // 	const options = {
 // 		"recycling-plants": "Recycling Plants",
 // 		choropleth: "Choropleth map",
 // 		"ulb-wise": "ULB wise Scatter plot",
 // 		"state-wise": "State wise Scatter plot",
 // 	};
-//
+
 // 	return (
 // 		<>
 // 			<Header home={home} />
-//
+
 // 			<div className="Plotgraph">
 // 				<div className="Plotgraph__header">
 // 					<h3 className="Plotgraph__title">
@@ -144,7 +144,7 @@
 // 					</h3>
 // 					<Dropdown setCurrentOption={setCurrentOption} options={options} />
 // 				</div>
-//
+
 // 				{currentOption ? (
 // 					<Plot
 // 						className="Plotgraph__plot"
@@ -169,5 +169,5 @@
 // 		</>
 // 	);
 // };
-//
+
 // export default Plotgraph;

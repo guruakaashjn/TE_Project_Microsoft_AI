@@ -11,7 +11,7 @@ const LinePlot = () => {
 	const [tracePredict, setTracePredict] = useState({});
 
 	useEffect(() => {
-		const url = "http://localhost:8000";
+		const url = "https://plasticlessindia.azurewebsites.net";
 		const config = {
 			"Content-Type": "application/json",
 			"Access-Control-Allow-Origin": "*",
@@ -27,16 +27,6 @@ const LinePlot = () => {
 				if (response.status === 200) {
 					console.log(response.data);
 					setPolynpolynomialData(response.data);
-					// setTraceActual({
-					// 	x: polynomialData.yearActual,
-					// 	y: polynomialData.dataActual,
-					// 	type: "scatter",
-					// });
-					// setTracePredict({
-					// 	x: polynomialData.yearPredict,
-					// 	y: polynomialData.dataPredict,
-					// 	type: "scatter",
-					// });
 				}
 			};
 			getPolynomialData();
@@ -82,7 +72,7 @@ const LinePlot = () => {
 
 	return (
 		<div className="linePlot">
-			{/* // Pie chart */}
+			{/* // Polynomial Regression chart */}
 			<Plot
 				data={data}
 				layout={layout}
