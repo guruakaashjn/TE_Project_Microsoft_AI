@@ -7,15 +7,17 @@ from wsgiref.util import request_uri
 import numpy as np
 import pandas as pd
 from django.http import HttpResponse, JsonResponse
-from parso import parse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.conf import settings
-# import plotly.plotly as py
+from sklearn.linear_model import LinearRegression
 from .customPagination import CustomPagination
+# Machine learning models
+from sklearn.preprocessing import PolynomialFeatures
+# from sklearn.linear_model import LinearRegression
+
 
 #For visualization
-import plotly.graph_objs as go
 import chart_studio
 chart_studio.tools.set_credentials_file(username='PlotGuruVes', api_key='FhPEgIKGNSQmOpjZXahe')
 # Add Mapbox access token here 
@@ -105,10 +107,10 @@ def dataset(request):
                         "Rainfall": row[3],
                         "Urban Population": row[5],
                         "Rural Population": row[6],
-                        "MSW": row[7],
+                        "MSW": row[9],
                         # "Recycling Plants": row[8],
-                        "Atmospheric MicroPlastics": row[9],
-                        "Beach Plastics": row[10],
+                        "Atmospheric MicroPlastics": row[10],
+                        "Beach Plastics": row[11],
                         "Climate Change": row[11],
                         "Natural Calamities": row[12],
                         "Plastic Production": row[13],
@@ -122,26 +124,6 @@ def dataset(request):
     # return JsonResponse(data, safe=False)
     return Response(result)
     
-
-@api_view(['GET', 'POST'])
-def data_visualisation(request):
-    year = request.body.year
-
-
-# @api_view(['GET', 'POST'])
-# def choropleth(request):
-#     # year = request.query_params.year
-#     df = pd.read_csv(os.path.join(settings.BASE_DIR, 'dataset.csv'))
-#     df.drop(columns=['Wind_Speed', 'Rainfall_Actual', 'Rainfall_Normal', 'Population_Urban', 'Population_Rural', 'MSW', 'Recycling_Units', 'Atmosheric_Microplastics', 'Beach_Plastics','Climate_Change', 'Natural_Calamities', 'Plastic_Production_Class'],inplace=True)
-#     print(df.shape())
-#     india_states = json.load(open(os.path.join(settings.BASE_DIR), 'india.json'))
-#     df_year = pd.DataFrame(columns=['State', 'id', 'plastic'])
-#     df_year['State'] = df['Region_Area_State'].unique()
-#     state_id_map = {}
-#     for feature in india_states["features"]:
-#         feature["id"] = feature["properties"]["state_code"]
-#         state_id_map[feature["properties"]["st_nm"]] = feature["id"]
-
 
 #@ Scatter map statewise
 @api_view(['GET'])
@@ -205,28 +187,22 @@ def getDataOneState(request):
     }
     return Response(response)
 
+
 @api_view(['GET', 'POST'])
 def getCBState(request):
     print("Catboost")
-    state = request.query_params['state']
     year = int(request.query_params['year'])
-    print(state)
     print(year)
-    years = []
-    for i in range(year, 2010, -1):
-        years.append(i)
-
     predict_data = []
-    state_lst = label_encoded[state]
-    for i in years:
-        x = state_lst[:35]
-        x.append(int(i))
-        predict_data.append(x)
-    print(predict_data)
+    for state in label_encoded.values():
+        state_list = state[:35]
+        state_list.append(year)
+        predict_data.append(state_list)
     model = pickle.load(open(os.path.join(settings.BASE_DIR, 'catboost_state'), 'rb'))
     data = model.predict(predict_data)
     return Response({
-        "predictedValue": data
+        "data": data,
+        "states": label_encoded.keys(),
     })
 
 @api_view(['GET', 'POST'])
@@ -247,18 +223,19 @@ def getCBCountry(request):
 
 @api_view(['GET', 'POST'])
 def getRandomForestState(request):
-    state = request.data['state']
-    year = int(request.data['year'])
-    # state_lst=[]
-    # for i in state:
-    #     state_lst.append(label_encoded[i][:])
-    #     state_lst.append(year)
-    state_lst = label_encoded[state]
-    state_lst.append(year)
-    model = pickle.load(open(os.path.join(settings.BASE_DIR, 'random_forest.sav'), 'rb'))
-    data = model.predict([state_lst])
+    year = int(request.query_params['year'])
+    predict_data = []
+    for state in label_encoded.values():
+        state_list = state[:35]
+        state_list.append(year)
+        predict_data.append(state_list)
+    print(predict_data[:5])
+    model = pickle.load(open(os.path.join(settings.BASE_DIR, 'random_forest'), 'rb'))
+    data = model.predict(predict_data)
+    print(data)
     return Response({
-        "predictedValue": data
+        "data": data,
+        "states": label_encoded.keys()
     })
 
 @api_view(['GET', 'POST'])
@@ -266,8 +243,8 @@ def getRandomForestOverYears(request):
     # print(request.query_params)
     state = request.query_params['state']
     year = int(request.query_params['year'])
-    print(state)
-    print(year)
+    # print(state)
+    # print(year)
     years = []
     for i in range(year, 2010, -1):
         years.append(i)
@@ -289,17 +266,26 @@ def getRandomForestOverYears(request):
     })
 
 
-
-@api_view(['GET'])
-def download_csv(request):
-    response = Response(content_type='text/csv')
-    writer = csv.writer(response)
-    df = pd.read_csv(os.path.join(settings.BASE_DIR, 'dataset.csv'))
-    for line in df:
-        writer.writerow(line)
-    response['Content-Disposition'] = 'attachment; filename="FootprintAnalysis.csv"'
-    return response
-
+@api_view(['GET', 'POST'])
+def getPolynomialReg(request):
+    dataset = pd.read_csv(os.path.join(settings.BASE_DIR, 'dataset-country.csv'))
+    X = dataset.iloc[:, :-1].values
+    y = dataset.iloc[:, -1].values
+    X_test = np.array([[2011], [2012], [2013], [2014], [2015], [2016], [2017], [2018], [2019], [2020], [2021], [2022], [2023], [2024], [2025], [2026], [2027], [2028], [2029], [2030]])
+    poly_reg = PolynomialFeatures(degree = 3)
+    x_poly = poly_reg.fit_transform(X)
+    regressor = LinearRegression()
+    regressor.fit(x_poly, y)
+    predict_data = poly_reg.transform(X_test)
+    model = pickle.load(open(os.path.join(settings.BASE_DIR, 'polynomialCountry'), 'rb'))
+    data = model.predict(predict_data)
+    print(data)
+    return Response({
+        "dataPredict": data, 
+        "yearPredict": [x for x in range(2011, 2031)], 
+        "dataActual": y,
+        "yearActual": [x for x in range(2011, 2021)],
+    })
 
 
 
