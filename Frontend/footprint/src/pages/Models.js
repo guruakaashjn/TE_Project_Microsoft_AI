@@ -84,7 +84,7 @@ const Models = ({ home }) => {
 	useEffect(() => {
 		// console.log(year);
 		// console.log(region);
-		const url = "https://plasticlessindia.azurewebsites.net";
+		const url = "http://localhost:8000";
 		const config = {
 			"Content-Type": "application/json",
 			"Access-Control-Allow-Origin": "*",
@@ -114,7 +114,7 @@ const Models = ({ home }) => {
 
 	// This useEffect returns all the data of the given region
 	// useEffect(() => {
-	// 	const url = "https://plasticlessindia.azurewebsites.net";
+	// 	const url = "http://localhost:8000";
 	// 	const config = {
 	// 		"Content-Type": "application/json",
 	// 		"Access-Control-Allow-Origin": "*",
@@ -150,7 +150,7 @@ const Models = ({ home }) => {
 	// }, [region]);
 
 	// useEffect(() => {
-	// 	const url = "https://plasticlessindia.azurewebsites.net";
+	// 	const url = "http://localhost:8000";
 	// 	const config = {
 	// 		"Content-Type": "application/json",
 	// 		"Access-Control-Allow-Origin": "*",
@@ -182,7 +182,7 @@ const Models = ({ home }) => {
 
 	// to get the predicted value of a state
 	// useEffect(() => {
-	// 	const url = "https://plasticlessindia.azurewebsites.net";
+	// 	const url = "http://localhost:8000";
 	// 	const config = {
 	// 		"Content-Type": "application/json",
 	// 		"Access-Control-Allow-Origin": "*",
@@ -215,7 +215,7 @@ const Models = ({ home }) => {
 	// State wise Catboost regression
 
 	// useEffect(() => {
-	// 	const url = "https://plasticlessindia.azurewebsites.net";
+	// 	const url = "http://localhost:8000";
 	// 	const config = {
 	// 		"Content-Type": "application/json",
 	// 		"Access-Control-Allow-Origin": "*",
