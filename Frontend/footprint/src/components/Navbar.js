@@ -39,6 +39,22 @@ const Navbar = () => {
 						VISUALISATIONS
 					</Button>
 				</Link>
+				<Link to={"/visualisationOcean"}>
+					<Button
+						className="header__buttons"
+						// onClick={handleCloseNavMenu}
+						sx={{
+							my: 2,
+							color: "#fff8b5",
+							textShadow: "1px 1px 2px black",
+							fontSize: "1.2rem",
+							display: "block",
+							fontWeight: "bold",
+						}}
+					>
+						VISUALISATION_OCEAN
+					</Button>
+				</Link>
 			</div>
 			<div className="Navbar__center">
 				<Link to={"/"}>
@@ -86,7 +102,7 @@ const Navbar = () => {
 							fontWeight: "bold",
 						}}
 					>
-						LAND DATASET
+					DATASET
 					</Button>
 				</Link>
 				<Link to={"/datasetOcean"}>
