@@ -24,7 +24,7 @@ const Dataset = ({ home }) => {
 		try {
 			const getDataset = async () => {
 				const response = await axios.get(
-					`${url}/api/get-dataset?page=${page}`,
+					`${url}/api/get-dataset-ocean?page=${page}`,
 					config
 				);
 				// console.log(response.data);

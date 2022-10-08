@@ -7,6 +7,7 @@ urlpatterns = [
     path('', views.home, name='index'),
     # path('dataset/', views.csv_to_json, name='csvtojson'),
     path('get-dataset/', views.dataset, name='dataset'),
+    path('get-dataset-ocean/', views.datasetOcean, name='datasetOcean'),
     path('get-data-year/', views.getDataOneYear, name='one-year-data'),
     path('get-data-state/', views.getDataOneState, name='one-state-data'),
     path('get-random-over/', views.getRandomForestOverYears, name='data-over-years'),

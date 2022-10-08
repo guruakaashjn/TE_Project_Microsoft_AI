@@ -23,10 +23,11 @@ const Header = ({ home }) => {
 		Visualisation: "/visualisation",
 		Models: "/models",
 		Dataset: "/dataset",
+		DatasetOcean: "/datasetOcean",
 		Preventions: "/preventions",
 	};
 	// console.log(home);
-	const pages = ["Home", "Visualisation", "Models", "Dataset", "Preventions"];
+	const pages = ["Home", "Visualisation", "Models", "Dataset", "DatasetOcean", "Preventions"];
 	// const [anchorElNav, setAnchorElNav] = React.useState(null);
 	// const [anchorElUser, setAnchorElUser] = React.useState(null);
 

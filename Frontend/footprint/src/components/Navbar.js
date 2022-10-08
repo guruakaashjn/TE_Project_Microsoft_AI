@@ -86,7 +86,22 @@ const Navbar = () => {
 							fontWeight: "bold",
 						}}
 					>
-						DATASET
+						LAND DATASET
+					</Button>
+				</Link>
+				<Link to={"/datasetOcean"}>
+					<Button
+						className="header__buttons"
+						sx={{
+							my: 2,
+							color: "#fff8b5",
+							textShadow: "1px 1px 2px black",
+							fontSize: "1.2rem",
+							display: "block",
+							fontWeight: "bold",
+						}}
+					>
+						OCEAN DATASET 
 					</Button>
 				</Link>
 				<Link to={"/"}>
