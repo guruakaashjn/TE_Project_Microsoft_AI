@@ -27,7 +27,7 @@ const Footer = () => {
 							component="div"
 						>
 							Plastic Footprint is a collaborative project done by students of
-							VESIT(D12A) to calculate the plastic footprint of India. This
+							VESIT (D12A & D12C) to calculate the plastic footprint of India. This
 							project aims to calculate and predict the plastic footprint for
 							next 5 years.
 						</Typography>
@@ -98,6 +98,34 @@ const Footer = () => {
 								rel="noreferrer"
 							>
 								Varun Tripathy
+							</a>
+							<a
+								href="https://www.linkedin.com/in/manasvi-patwa-6189761a0"
+								target="_blank"
+								rel="noreferrer"
+							>
+								Manasvi Patwa
+							</a>
+							<a
+								href="https://www.linkedin.com/in/bhavika-chattani-3428a71b2"
+								target="_blank"
+								rel="noreferrer"
+							>
+								Bhavika Chattani
+							</a>
+							<a
+								href="https://www.linkedin.com/in/varnit-batheja-106692252/"
+								target="_blank"
+								rel="noreferrer"
+							>
+								Varnit Batheja
+							</a>
+							<a
+								href="https://www.linkedin.com/in/sahil-deshmukh-5b8195191/"
+								target="_blank"
+								rel="noreferrer"
+							>
+								Sahil Deshmukh
 							</a>
 						</div>
 					</div>
