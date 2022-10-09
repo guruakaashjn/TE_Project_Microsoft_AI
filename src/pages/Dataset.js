@@ -14,7 +14,7 @@ const Dataset = ({ home }) => {
 	const [page, setPage] = useState(1);
 
 	useEffect(() => {
-		const url = "http://plasticlessindia.azurewebsites.net/";
+		const url = "https://plasticlessindia.azurewebsites.net/";
 		const config = {
 			//http://localhost/3000
 			"Content-Type": "application/json",
@@ -47,7 +47,7 @@ const Dataset = ({ home }) => {
 	};
 
 	// const downloadFile = async () => {
-	// 	const url = "http://plasticlessindia.azurewebsites.net/";
+	// 	const url = "https://plasticlessindia.azurewebsites.net/";
 	// 	const config = {
 	// 		//http://localhost/3000
 	// 		responseType: "blob",
