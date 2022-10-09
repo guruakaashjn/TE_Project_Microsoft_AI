@@ -124,7 +124,50 @@ def dataset(request):
     # return JsonResponse(data, safe=False)
     return Response(result)
     
+@api_view(['GET'])
+def datasetOcean(request):
+    page = int(request.query_params["page"])
+    # print(page)
+    # limit = 50
+    upperlimit = 50*page
+    lowerlimit = 50*(page-1) + 1
 
+    with open(os.path.join(settings.BASE_DIR ,'datasetOcean.csv'), 'r' ) as file:
+        reader = csv.reader(file)
+        # To skip the titles
+        next(reader)
+        data = []
+        count = 1
+        # creating custom pagination here not django relateds
+        for row in reader:
+            if (count >= lowerlimit and count <= upperlimit):
+                data.append(
+                    {
+                        "Sr.no": count,
+                        "State": row[0],
+                        "Year": row[1],
+                        "Natural_Calamities": row[2],
+                        "Wind_speed": row[3],
+                        "Rainfall_Actual": row[4],
+                        "Rainfall_Normal": row[5],
+                        "Population_Urban": row[6],
+                        # "Recycling Plants": row[8],
+                        "Population_Rural": row[7],
+                        "Fishing_Inland": row[8],
+                        "Fishing_Marine": row[9],
+                        "Harbour_Plastic": row[10],
+                        "MSW": row[11],
+                        "Beach_plastics": row[12],
+                        "Climate_change": row[13],
+                        "Plastic_entering_sea": row[14]
+                    }
+                )
+            count+=1
+        # print(type(data))
+    parsed = json.dumps(data)
+    result = json.loads(parsed)
+    # return JsonResponse(data, safe=False)
+    return Response(result)
 #@ Scatter map statewise
 @api_view(['GET'])
 def state_wise_scatter(request):
