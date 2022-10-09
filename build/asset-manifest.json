@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.57c8569d.css",
+    "main.js": "/static/js/main.de14678c.js",
+    "static/media/naja-bertolt-jensen-FxnqdmKBJps-unsplash.jpg": "/static/media/naja-bertolt-jensen-FxnqdmKBJps-unsplash.59d1a059b05f43df0416.jpg",
+    "static/media/dustan-woodhouse-RUqoVelx59I-unsplash(1).jpg": "/static/media/dustan-woodhouse-RUqoVelx59I-unsplash(1).3fa40238cf67383176c8.jpg",
+    "static/media/ocean-4920792_1920.jpg": "/static/media/ocean-4920792_1920.832e5937e2efa6aefbe8.jpg",
+    "static/media/uno_conference.jpg": "/static/media/uno_conference.fbc259569b150b1b5d20.jpg",
+    "static/media/irreversible": "/static/media/irreversible.1ff61edcafd0b9f196c1",
+    "static/media/placeholder.jpg": "/static/media/placeholder.8538acd6ca5032d7f54b.jpg",
+    "static/media/bamboo-toothbrush.jpg": "/static/media/bamboo-toothbrush.b57b4785d29fba7a5e1f.jpg",
+    "static/media/microplastic.jpg": "/static/media/microplastic.39dcc200bd5ec3bedabf.jpg",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/index.html",
+    "main.57c8569d.css.map": "/static/css/main.57c8569d.css.map",
+    "main.de14678c.js.map": "/static/js/main.de14678c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.57c8569d.css",
+    "static/js/main.de14678c.js"
+  ]
+}
