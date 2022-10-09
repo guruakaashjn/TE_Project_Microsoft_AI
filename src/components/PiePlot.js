@@ -8,7 +8,7 @@ const PiePlot = ({ currentModel, year }) => {
 	const [pieData, setPieData] = useState({});
 	console.log(year);
 	useEffect(() => {
-		const url = "http://localhost:8000";
+		const url = "http://plasticlessindia.azurewebsites.net/";
 		const config = {
 			"Content-Type": "application/json",
 			"Access-Control-Allow-Origin": "*",
