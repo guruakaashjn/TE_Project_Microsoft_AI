@@ -21,14 +21,14 @@ const Header = ({ home }) => {
 	const path = {
 		Home: "/",
 		Visualisation: "/visualisation",
-		Visualisation_Ocean: "/visualisationOcean",
+		VisualisationOcean: "/visualisationOcean",
 		Models: "/models",
 		Dataset: "/dataset",
-		Dataset_Ocean: "/datasetOcean",
+		DatasetOcean: "/datasetOcean",
 		Preventions: "/preventions",
 	};
 	// console.log(home);
-	const pages = ["Home", "Visualisation", "Visualisation_Ocean", "Models", "Dataset", "Dataset_Ocean", "Preventions"];
+	const pages = ["Home", "Visualisation", "VisualisationOcean", "Models", "Dataset", "DatasetOcean", "Preventions"];
 	// const [anchorElNav, setAnchorElNav] = React.useState(null);
 	// const [anchorElUser, setAnchorElUser] = React.useState(null);
 
