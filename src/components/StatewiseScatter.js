@@ -10,7 +10,7 @@ const StatewiseScatter = ({ home }) => {
 	const [layout, setLayout] = useState({});
 
 	useEffect(() => {
-		const url = "https://plasticlessindia.azurewebsites.net";
+		const url = "http://localhost:8000";
 		const config = {
 			//http://localhost/3000
 			"Content-Type": "application/json",

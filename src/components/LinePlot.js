@@ -11,7 +11,7 @@ const LinePlot = () => {
 	const [tracePredict, setTracePredict] = useState({});
 
 	useEffect(() => {
-		const url = "https://plasticlessindia.azurewebsites.net";
+		const url = "http://localhost:8000";
 		const config = {
 			"Content-Type": "application/json",
 			"Access-Control-Allow-Origin": "*",
