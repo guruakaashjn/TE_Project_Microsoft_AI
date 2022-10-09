@@ -1,0 +1,52 @@
+:root {
+	--font-body: "Merriweather", serif;
+	--font-title: "Merienda", cursive;
+	--bg-dark: #050706;
+	--bg-accent: #989898;
+	--font-size-700: 3rem;
+	--font-size-500: 2rem;
+	--font-size-300: 1rem;
+}
+
+.header {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	background-color: #050706 !important;
+	opacity: 0.9;
+	display: flex;
+	justify-content: center;
+}
+
+.header-static {
+	position: static;
+	width: 100%;
+	background-color: #050706 !important;
+	/* can be changed to 0.9 to give the same efect as header */
+	opacity: 1;
+	display: flex;
+	justify-content: center;
+}
+
+.header__nav {
+	width: 80%;
+}
+
+.MuiAppBar-root {
+	background-color: #050706 !important;
+	opacity: 1 !important;
+}
+
+/* .header__buttons {
+	color: #FFF8B5 !important;
+} */
+
+.header__navbar {
+	justify-content: end;
+}
+
+@media screen and (max-width: 480px) {
+	.header {
+		padding-block: 0.8rem;
+	}
+}

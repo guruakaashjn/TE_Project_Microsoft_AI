@@ -1,0 +1,30 @@
+:root {
+	--font-body: "Merriweather", serif;
+	--font-title: "Merienda", cursive;
+	--bg-dark: #050706;
+	--bg-accent: #989898;
+	--font-size-700: 3rem;
+	--font-size-500: 2rem;
+	--font-size-300: 1rem;
+}
+
+.models__dropdown {
+	display: flex;
+	justify-content: center;
+	margin-block: 1.25rem;
+}
+
+.table .table__grid {
+	font-family: var(--font-title);
+	font-size: var(--font-size-300);
+}
+
+.models__plot {
+	display: flex;
+	justify-content: space-between;
+}
+
+div .MuiDataGrid-columnHeaderTitle {
+	font-weight: bold;
+	font-size: 1.1rem;
+}

@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&display=swap");
+
+:root {
+	--font-body: "Merriweather", serif;
+	--font-title: "Merienda", cursive;
+	--bg-dark: #050706;
+	--bg-accent: #989898;
+	--font-size-900: 4rem;
+	--font-size-700: 3rem;
+	--font-size-600: 2.25rem;
+	--font-size-500: 2rem;
+	--font-size-450: 1.75rem;
+	--font-size-400: 1.25rem;
+	--font-size-300: 1rem;
+	--opacity: 0.8;
+}
+
+.Footer {
+	margin-block: 2.5rem;
+}
+
+.footer__container {
+	background-color: var(--bg-dark);
+	color: white;
+}
+.FooterContainer__top {
+	display: flex;
+	margin-block: var(--font-size-500);
+}
+
+.Footer__left .Footer__Typography__header,
+.Footer__center .Footer__Typography__header,
+.Footer__right .Footer__Typography__header {
+	margin-block: var(--font-size-300);
+	font-family: var(--font-title);
+	display: flex;
+	font-weight: 700;
+	font-size: var(--font-size-450);
+}
+
+.Footer__left {
+	width: 50%;
+}
+
+.Footer__title {
+	font-size: var(--font-size-500);
+	font-family: var(--font-title);
+}
+
+.Footer__center {
+	width: 25%;
+}
+
+.Footer__icons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Footer__icons a {
+	color: white;
+}
+
+.Footer__icons a:hover {
+	color: var(--bg-accent);
+	transform: scale(1.2);
+}
+
+.Footer__right {
+	width: 25%;
+}
+
+.Footer__links {
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	justify-content: center;
+	/* align-items: center; */
+}
+
+.Footer__links a {
+	padding: 5px;
+	color: white;
+}
+
+.Footer__links a:hover {
+	text-decoration: underline;
+	color: var(--bg-accent);
+	text-decoration-color: var(--bg-accent);
+}
+
+.FooterContainer__bottom {
+	display: flex;
+	justify-content: center;
+}
+
+#Landing__footer {
+	display: flex;
+	background-color: var(--bg-dark);
+	justify-content: center;
+}
+
+@media screen and (max-width: 480px) {
+	.FooterContainer__top {
+		flex-direction: column;
+	}
+
+	.Footer__left,
+	.Footer__center,
+	.Footer__right {
+		width: 100%;
+		margin-block: var(--font-size-300);
+	}
+
+	.Footer__left .Footer__Typography__header,
+	.Footer__center .Footer__Typography__header,
+	.Footer__right .Footer__Typography__header {
+		font-size: var(--font-size-450);
+		justify-content: center;
+	}
+
+	.FooterContainer__bottom {
+		font-size: 0.8rem;
+	}
+}

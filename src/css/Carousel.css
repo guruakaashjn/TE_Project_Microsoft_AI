@@ -1,0 +1,40 @@
+.slick-slide .slick-center div {
+	transform: scale(1.3) !important;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.Carousel {
+	margin: 3rem;
+}
+
+.slick-center {
+	/* background-color: black; */
+	transform: scale(1.1);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.slick-arrow {
+	background-color: #050706 !important;
+	color: white !important;
+	padding: 8px !important;
+	border-radius: 50%;
+}
+
+/* .slick-prev,
+.slick-next {
+	background-color: #050706;
+	border-radius: 50%;
+} */
+
+/*
+.slick-prev,
+.slick-next :hover {
+	color: black;
+	border-radius: 50%;
+	padding: 0;
+	margin: 0;
+	transform: scale(1.1);
+	background-color: black !important;
+} */
