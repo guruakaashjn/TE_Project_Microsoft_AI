@@ -2,6 +2,9 @@
 
 This project was accepted in **Microsoft AI For Earth Grant Program** where we received a grant prize of USD 15,000 worth of Azure credits.
 
+<br />
+<br />
+
 ## **Project Summary**
 
 ### **Problem Statement**
@@ -14,13 +17,22 @@ This project was accepted in **Microsoft AI For Earth Grant Program** where we r
 * With the help of Machine Learning model, proposed system will predict the amoun of plastic waste which would be generated in the following 10 years under similar circumstances and constraints.<br />
 * Heatmaps are also generated to show the areas with low, moderate and high amouts of plastic waste and to depict details about recycling plants.<br />
 
+<br />
+<br />
+
 ## **The Modular Diagram for the Project**
 
 ![TE_Project_Modular_Diagram](https://github.com/user-attachments/assets/b382f67d-3210-4345-b076-de3f5b814282)
 
+<br />
+<br />
+
 ## **A Complete Summary of the Project**
 
 ![Microsoft_AI_For_Earth_21_Analysis_Of_Landuse_Plastic_Pollution_India_Poster](https://github.com/user-attachments/assets/57988a8d-d61e-4914-922c-85f96ba4ddf6)
+
+<br />
+<br />
 
 ## **This project's Research Paper is published under IJERA**
 * The paper discusses about the different ML/AI approaches we have implemented for the prediction of plastic waste in India in the next 5 years based on previous 10 years data.<br />
